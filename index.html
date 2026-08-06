@@ -1,19 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Portfolio of Michael Steurer, a marketing operations and digital marketing professional experienced in Salesforce, Account Engagement, automation, web, and SEO.">
-  <meta name="theme-color" content="#121820">
+  <meta name="theme-color" content="#0b1020">
   <meta property="og:title" content="Michael Steurer | Marketing Operations & Automation">
   <meta property="og:description" content="Marketing operations, CRM automation, web operations, and digital marketing portfolio.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mickeysteurer.github.io/">
+  <meta property="og:image" content="https://mickeysteurer.github.io/michael-steurer-portrait.webp">
   <title>Michael Steurer | Marketing Operations &amp; Automation</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
 <main>
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Michael Steurer home"><span class="full-name">Michael Steurer</span><span class="initials">MS</span></a>
@@ -21,10 +24,12 @@
   </header>
 
   <section class="hero" id="top">
-    <p class="eyebrow">Marketing Operations &amp; Automation</p>
+    <div class="hero-ambient" aria-hidden="true"></div>
+    <div class="hero-rule" aria-hidden="true"></div>
+    <p class="eyebrow hero-kicker"><span aria-hidden="true"></span>Marketing Operations &amp; Automation</p>
     <div class="hero-lead">
-      <h1>I turn campaign plans into reliable workflows across CRM setup, QA, routing, follow-up, and automation.</h1>
-      <figure class="portrait-card"><div class="portrait-frame"><img src="michael-steurer-portrait.webp" alt="Michael Steurer in a dark suit and white shirt" width="900" height="900" fetchpriority="high" decoding="async"></div></figure>
+      <h1>I turn campaign plans into <span class="hero-emphasis">reliable workflows</span> across CRM setup, QA, routing, follow-up, and automation.</h1>
+      <figure class="portrait-card"><div class="portrait-frame"><img src="michael-steurer-portrait.webp" alt="Michael Steurer in a dark suit and white shirt" width="900" height="900" fetchpriority="high" decoding="async"></div><figcaption><span>Michael Steurer</span><span>Weehawken · NYC</span></figcaption></figure>
     </div>
     <div class="hero-bottom">
       <p class="hero-intro">I work across Salesforce Account Engagement, Engagement Studio, WordPress, and SEO, connecting campaign execution with CRM data, web operations, and practical automation.</p>
@@ -38,15 +43,15 @@
   </section>
 
   <section class="metrics" aria-label="Career highlights"><div class="metrics-inner">
-    <article><strong>50+</strong><span>Engagement Studio workflows executed</span></article>
-    <article><strong>2.4K → 3.2K</strong><span>Organic Google Search clicks, Jan–Apr reporting period</span></article>
-    <article><strong>End-to-end</strong><span>Campaign setup, QA, routing, follow-up, and cleanup</span></article>
+    <article data-reveal><strong>50+</strong><span>Engagement Studio workflows executed</span></article>
+    <article data-reveal><strong>2.4K → 3.2K</strong><span>Organic Google Search clicks, Jan–Apr reporting period</span></article>
+    <article data-reveal><strong>End-to-end</strong><span>Campaign setup, QA, routing, follow-up, and cleanup</span></article>
   </div></section>
 
   <section class="work-section" id="work">
-    <div class="section-heading"><p class="eyebrow">Selected work</p><h2>Systems I built to automate repetitive marketing and operations work.</h2></div>
+    <div class="section-heading" data-reveal><p class="eyebrow">Selected work</p><h2>Systems I built to automate repetitive marketing and operations work.</h2></div>
     <div class="case-list">
-      <article class="case-study case-featured">
+      <article class="case-study case-featured" data-reveal data-spotlight>
         <div class="case-index">01</div>
         <div class="case-title"><p class="project-type">Workflow automation</p><h3>Deferred-interest follow-up</h3><p class="project-context">GRM / VisualVault · 2025–2026</p></div>
         <div class="case-details">
@@ -54,17 +59,17 @@
           <div><span class="detail-label">What I built</span><p>A workflow connecting campaign replies to response classification, Account Engagement contact matching, list enrollment, and future Engagement Studio follow-up.</p></div>
           <div><span class="detail-label">Operational value</span><p>Reduced repeated manual monitoring and made deferred-interest follow-up more consistent.</p></div>
         </div>
-        <div class="automation-map" aria-label="Deferred-interest automation process">
-          <div><small>01</small><strong>Reply</strong><span>Interest deferred</span></div><b aria-hidden="true">→</b>
-          <div><small>02</small><strong>Classify</strong><span>Response identified</span></div><b aria-hidden="true">→</b>
-          <div><small>03</small><strong>Match</strong><span>Contact located</span></div><b aria-hidden="true">→</b>
-          <div><small>04</small><strong>Enroll</strong><span>List + program</span></div><b aria-hidden="true">→</b>
-          <div><small>05</small><strong>Follow up</strong><span>Future outreach</span></div>
+        <div class="automation-map" role="group" aria-label="Deferred-interest automation process">
+          <div style="--step:0"><small>01</small><strong>Reply</strong><span>Interest deferred</span></div><b style="--step:0" aria-hidden="true">→</b>
+          <div style="--step:1"><small>02</small><strong>Classify</strong><span>Response identified</span></div><b style="--step:1" aria-hidden="true">→</b>
+          <div style="--step:2"><small>03</small><strong>Match</strong><span>Contact located</span></div><b style="--step:2" aria-hidden="true">→</b>
+          <div style="--step:3"><small>04</small><strong>Enroll</strong><span>List + program</span></div><b style="--step:3" aria-hidden="true">→</b>
+          <div style="--step:4"><small>05</small><strong>Follow up</strong><span>Future outreach</span></div>
         </div>
         <div class="case-tags"><span>Account Engagement</span><span>Engagement Studio</span><span>Response classification</span><span>Workflow automation</span></div>
       </article>
 
-      <article class="case-study case-grid">
+      <article class="case-study case-grid" data-reveal data-spotlight>
         <div class="case-index">02</div>
         <div class="case-title"><p class="project-type">Data workflow automation</p><h3>Invoice parsing into structured data</h3><p class="project-context">GRM / VisualVault · 2025–2026</p></div>
         <div class="case-stack">
@@ -74,7 +79,7 @@
         </div>
       </article>
 
-      <article class="case-study case-grid case-dark">
+      <article class="case-study case-grid case-dark" data-reveal data-spotlight>
         <div class="case-index">03</div>
         <div class="case-title"><p class="project-type">Routing automation</p><h3>ZIP-based sales assignment</h3><p class="project-context">GRM / VisualVault · 2025–2026</p></div>
         <div class="case-stack">
@@ -87,9 +92,9 @@
   </section>
 
   <section class="experience-section" id="experience">
-    <div class="section-heading compact-heading"><p class="eyebrow">Experience</p><h2>Hands-on marketing operations experience.</h2></div>
+    <div class="section-heading compact-heading" data-reveal><p class="eyebrow">Experience</p><h2>Hands-on marketing operations experience.</h2></div>
     <div class="timeline">
-      <article class="timeline-row">
+      <article class="timeline-row" data-reveal>
         <div class="timeline-meta"><span>Mar 2025 — Jun 2026</span><span>Jersey City, NJ · Hybrid</span></div>
         <div class="timeline-main"><h3>Marketing Coordinator <span>(Marketing Operations)</span></h3><p class="company">GRM Information Management Services / VisualVault</p><ul>
           <li>Executed Engagement Studio workflows from audience setup and email builds through QA, launch, routing, response handling, and follow-up.</li>
@@ -98,7 +103,7 @@
           <li>Maintained campaign and CRM accuracy through lead-source checks, campaign-member cleanup, UTM validation, and dashboard inputs.</li>
         </ul></div>
       </article>
-      <article class="timeline-row">
+      <article class="timeline-row" data-reveal>
         <div class="timeline-meta"><span>May 2024 — Oct 2024</span><span>Remote</span></div>
         <div class="timeline-main"><h3>Digital Marketer Intern</h3><p class="company">Travel Hotline</p><ul><li>Created digital assets for social media, email newsletters, blog content, and other digital channels.</li><li>Produced approximately five social videos per week using Adobe Premiere Pro and Adobe Express.</li></ul></div>
       </article>
@@ -106,21 +111,21 @@
   </section>
 
   <section class="tools-section">
-    <div class="tools-intro"><p class="eyebrow">Platforms &amp; tools</p><h2>Tools used in day-to-day execution.</h2></div>
+    <div class="tools-intro" data-reveal><p class="eyebrow">Platforms &amp; tools</p><h2>Tools used in day-to-day execution.</h2></div>
     <div class="tool-list">
-      <article><span>01</span><h3>CRM &amp; campaigns</h3><p>Salesforce CRM · Account Engagement (Pardot) · Engagement Studio · 6sense</p></article>
-      <article><span>02</span><h3>Web &amp; analytics</h3><p>WordPress · Elementor · Google Search Console · GA4</p></article>
-      <article><span>03</span><h3>Automation &amp; scripting</h3><p>Zapier · Google Apps Script · Python · OpenAI/API workflows · Google Sheets</p></article>
-      <article><span>04</span><h3>Creative</h3><p>Photoshop · Illustrator · Premiere Pro · Adobe Express · Canva · CapCut</p></article>
+      <article data-reveal><span>01</span><h3>CRM &amp; campaigns</h3><p>Salesforce CRM · Account Engagement (Pardot) · Engagement Studio · 6sense</p></article>
+      <article data-reveal><span>02</span><h3>Web &amp; analytics</h3><p>WordPress · Elementor · Google Search Console · GA4</p></article>
+      <article data-reveal><span>03</span><h3>Automation &amp; scripting</h3><p>Zapier · Google Apps Script · Python · OpenAI/API workflows · Google Sheets</p></article>
+      <article data-reveal><span>04</span><h3>Creative</h3><p>Photoshop · Illustrator · Premiere Pro · Adobe Express · Canva · CapCut</p></article>
     </div>
   </section>
 
   <section class="credentials-section">
-    <div><p class="eyebrow">Education</p><h3>Rowan University</h3><p>B.A. in Psychology · December 2024</p><p>3.97 GPA · Summa Cum Laude · President’s Scholars of Excellence</p></div>
-    <div><p class="eyebrow">Certification</p><h3>Google Ads Search Certification</h3><p>Search advertising fundamentals</p></div>
+    <div data-reveal><p class="eyebrow">Education</p><h3>Rowan University</h3><p>B.A. in Psychology · December 2024</p><p>3.97 GPA · Summa Cum Laude · President’s Scholars of Excellence</p></div>
+    <div data-reveal><p class="eyebrow">Certification</p><h3>Google Ads Search Certification</h3><p>Search advertising fundamentals</p></div>
   </section>
 
-  <section class="contact-section" id="contact">
+  <section class="contact-section" id="contact" data-reveal>
     <p class="eyebrow">Let’s connect</p><h2>Need someone who can take campaigns from setup through follow-up?</h2>
     <p class="contact-copy">I’m open to marketing operations, CRM automation, and digital marketing roles in the New York City area or remotely in the U.S.</p>
     <div class="contact-actions"><a class="button contact-button" href="mailto:mickey.steurer@gmail.com">Email Michael <span aria-hidden="true">↗</span></a><a class="button contact-outline" href="Michael_Steurer_Resume.pdf" download>Download resume <span aria-hidden="true">↓</span></a><a class="text-link light-link" href="https://www.linkedin.com/in/mickey-steurer" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div>
