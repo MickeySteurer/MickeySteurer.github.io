@@ -102,7 +102,6 @@ h2{max-width:850px;margin:0;font-size:clamp(38px,4.2vw,58px);line-height:1.03;le
 .case-index{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--cobalt-strong);color:#fff;box-shadow:0 8px 18px rgba(64,91,219,.17);font-size:12px;font-weight:800}
 .project-type{margin:2px 0 10px;color:#303b4d;font-size:10.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
 h3{margin:0;font-size:31px;line-height:1.08;letter-spacing:-.04em}
-.project-context{margin:12px 0 0;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.02em}
 .case-details{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .case-details>div{padding-left:18px;border-left:1px solid var(--line)}
 .detail-label{display:block;margin-bottom:8px;color:#303b4d;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
@@ -211,3 +210,4 @@ footer{padding:28px max(24px,calc((100% - 1180px)/2));background:#080d18;color:#
   .is-ready [data-reveal],.is-ready [data-reveal].is-visible{opacity:1;transform:none;filter:none;transition:none}
   .is-ready .hero-rule:after,.metrics article.is-visible:before,.case-featured.is-visible .automation-map>div,.case-featured.is-visible .automation-map>b{animation:none;transform:none;opacity:1}
 }
+
