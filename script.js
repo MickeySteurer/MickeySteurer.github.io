@@ -2,6 +2,27 @@
   const root = document.documentElement;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  const progressBar = document.querySelector('[data-scroll-progress]');
+  let progressFrame = 0;
+  const updateScrollProgress = () => {
+    progressFrame = 0;
+    if (!progressBar) return;
+    const scrollRange = Math.max(root.scrollHeight, document.body.scrollHeight) - window.innerHeight;
+    const progress = scrollRange > 0
+      ? Math.min(Math.max(root.scrollTop / scrollRange, 0), 1)
+      : 0;
+    progressBar.style.setProperty('--scroll-progress', progress.toString());
+  };
+  const requestProgressUpdate = () => {
+    if (progressFrame) return;
+    progressFrame = requestAnimationFrame(updateScrollProgress);
+  };
+  if (progressBar) {
+    updateScrollProgress();
+    window.addEventListener('scroll', requestProgressUpdate, { passive: true });
+    window.addEventListener('resize', requestProgressUpdate);
+  }
+
   const revealItems = [...document.querySelectorAll('[data-reveal]')];
   if (reducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
