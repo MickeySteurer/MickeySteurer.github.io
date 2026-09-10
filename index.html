@@ -79,18 +79,31 @@
       <article class="case-study case-featured" data-reveal>
         <div class="case-index">01</div>
         <div class="case-title"><h3>Sales replies and personalized follow-up</h3></div>
-        <p class="project-overview">A campaign reply could mean “let’s talk,” “not interested,” or “try me later.” I connected reply classification to the right next step, including personalized outreach when someone asked to reconnect.</p>
+        <p class="project-overview">“Try me again next quarter” needed to become more than a note in an inbox. I built a workflow that captured when and why someone wanted to reconnect, then used that context for personalized outreach at the right time.</p>
         <details class="work-example" id="follow-up-example">
-          <summary>Explore the four response paths</summary>
-          <div class="example-content">
-            <p class="workflow-intro">Replies to sales aliases arrived in Gmail. Zapier passed them to OpenAI’s API for classification, then the workflow branched by intent.</p>
+          <summary>See how a reply becomes a future conversation</summary>
+          <div class="example-content reply-flow">
+            <ol class="flow-intake" aria-label="Reply intake">
+              <li><strong>Gmail reply</strong><span>Received by a sales alias</span></li>
+              <li><strong>Zapier</strong><span>Passes the reply for classification</span></li>
+              <li><strong>OpenAI API</strong><span>Identifies response intent</span></li>
+            </ol>
+            <h4 class="flow-label">Selected response paths</h4>
             <div class="response-paths">
-              <div><h4>Positive intent</h4><p>Add or restore Salesforce and Pardot records where needed, then notify Sales. Contacts were rotated out to manage contact costs, so interested respondents sometimes needed to be added back.</p><p class="path-outcome">Salesperson writes the reply.</p></div>
-              <div><h4>Negative intent</h4><p>Exclude the contact from further emails in that campaign.</p><p class="path-outcome">Current campaign stops for that contact.</p></div>
-              <div><h4>Do not contact</h4><p>Update mailability fields and the do-not-contact list to stop further outreach.</p><p class="path-outcome">Contact is excluded from outreach.</p></div>
-              <div><h4>Deferred interest</h4><p>Extract the requested timing and reason with OpenAI’s API. Custom fields I created in Pardot stored that context for a personalized email at the requested time.</p><p class="path-outcome">Scheduled email is automated; Sales personally handles interested replies.</p></div>
+              <div><h4>Positive intent</h4><p>Add or restore Salesforce and Pardot records where needed, then notify Sales.</p><p class="path-outcome">Salesperson writes the reply.</p></div>
+              <div><h4>Negative intent</h4><p>Exclude the contact from further emails in that campaign.</p><p class="path-outcome">Current campaign stops.</p></div>
+              <div><h4>Do not contact</h4><p>Update mailability fields and the do-not-contact list.</p><p class="path-outcome">Further outreach stops.</p></div>
+              <div class="deferred-path"><h4>Deferred interest</h4><p>Turn a request to reconnect later into a scheduled, personalized follow-up.</p>
+                <ol class="deferred-steps" aria-label="Deferred-interest follow-up">
+                  <li><strong>Extract the timing and reason</strong><p>OpenAI’s API identified when the contact wanted to hear from us and the context behind the request.</p></li>
+                  <li><strong>Save the context in Pardot</strong><p>Custom fields I created stored the requested timing and reason for the later email.</p></li>
+                  <li><strong>Schedule personalized outreach</strong><p>The follow-up referenced the earlier request, with Engagement Studio supporting the connected workflow.</p></li>
+                  <li><strong>Send automatically at the requested time</strong><p>The scheduled email re-opened the conversation using the saved context.</p></li>
+                  <li class="sales-handoff"><strong>Hand interested replies to Sales</strong><p>A salesperson personally handled the response and next conversation.</p></li>
+                </ol>
+              </div>
             </div>
-            <p class="workflow-note">Engagement Studio supported the connected follow-up workflow.</p>
+            <p class="workflow-note">Contacts were rotated out to manage contact costs, so an interested respondent sometimes needed to be added back to Salesforce and Pardot.</p>
           </div>
         </details>
         <div class="case-tags"><span>Gmail</span><span>Zapier</span><span>OpenAI API</span><span>Pardot</span><span>Engagement Studio</span></div>
@@ -107,9 +120,10 @@
               <li><strong>Upload to Google Drive</strong><p>The invoice was automatically scanned and its details extracted into an invoice sheet.</p></li>
               <li><strong>Remove duplicates and organize files</strong><p>The workflow removed duplicate files and entries, then moved processed invoices into the processed folder.</p></li>
               <li><strong>Update the temporary budget</strong><p>The invoice sheet fed a temporary budget with visualizations that changed as invoices came in.</p></li>
-              <li class="human-step"><strong>Confirm the changes</strong><p>A person reviewed and confirmed the changes before they could reach the tracked budget.</p></li>
+              <li class="human-step"><strong>Confirm the changes</strong><p>I reviewed and confirmed invoices before changes could reach the tracked budget.</p></li>
               <li><strong>Save to the tracked budget</strong><p>After confirmation, the workflow automatically updated the stable tracked budget.</p></li>
             </ol>
+            <p class="workflow-note">Alongside the budget, I tracked invoice payment status through email.</p>
           </div>
         </details>
         <div class="case-tags"><span>Google Drive</span><span>Google Apps Script</span><span>Google Sheets</span></div>
@@ -118,12 +132,12 @@
       <article class="case-study case-grid" data-reveal>
         <div class="case-index">03</div>
         <div class="case-title"><h3>Territory-based sales assignment</h3></div>
-        <p class="project-overview">Combining facility-by-facility contact exports made sales assignment cumbersome. I built location-based routing to connect prospects with a relevant facility and sales alias.</p>
+        <p class="project-overview">I built a workflow that took regional contact exports and matched prospects with a relevant facility and sales alias, making location-based assignment repeatable.</p>
         <details class="work-example" id="routing-example">
           <summary>See how prospects were assigned</summary>
           <div class="example-content">
             <ol class="workflow-steps">
-              <li><strong>Start with prospect locations</strong><p>ZoomInfo and other sources supplied contact data. The earlier process involved combining multiple exports for individual facilities.</p></li>
+              <li><strong>Start with prospect locations</strong><p>Regional exports from ZoomInfo and other sources supplied the contact data for the routing workflow.</p></li>
               <li><strong>Compare nearby facilities</strong><p>Google Apps Script compared prospect locations with company facilities to identify a relevant match.</p></li>
               <li><strong>Assign the sales alias in Pardot</strong><p>The assignment connected prospects with Sales serving the relevant area and rates.</p></li>
               <li><strong>Flag exceptions</strong><p>Distant prospects and ambiguous matches between facilities were flagged for attention.</p></li>
@@ -136,24 +150,33 @@
       <article class="case-study case-grid" data-reveal>
         <div class="case-index">04</div>
         <div class="case-title"><h3>Creative file organization</h3></div>
-        <p class="project-overview">Useful creative work is easier to reuse when you can find it. Working with our designer, I built a naming workflow that used project emails to make a Drive asset library easier to search.</p>
+        <p class="project-overview">Useful creative work is easier to reuse when you can find it. Working with our designer, I built a workflow that used project emails to rename and sort a Drive asset library.</p>
         <details class="work-example" id="creative-example">
-          <summary>See how context became file names</summary>
+          <summary>See how files were named and sorted</summary>
           <div class="example-content">
             <ol class="workflow-steps">
               <li><strong>Work with the designer</strong><p>We used the library’s naming conventions and the designer’s project correspondence, with their consent.</p></li>
               <li><strong>Read the project context</strong><p>Email language, dates, and project types helped identify what each asset was for. Consistent wording in recurring requests made that context useful.</p></li>
-              <li><strong>Apply useful names in Drive</strong><p>Google Apps Script used that context to name files, making existing assets easier to retrieve and reuse.</p></li>
+              <li><strong>Apply useful names in Drive</strong><p>Google Apps Script used that context to give files useful names.</p></li>
+              <li><strong>Sort by the naming convention</strong><p>After renaming, the workflow automatically sorted the files according to that convention, making assets easier to retrieve and reuse.</p></li>
             </ol>
           </div>
         </details>
         <div class="case-tags"><span>Google Drive</span><span>Gmail</span><span>Google Apps Script</span></div>
       </article>
     </div>
-    <div class="campaign-tracking" id="other-projects">
+    <div class="campaign-tracking supporting-work" id="other-projects">
       <details class="work-example" id="campaign-example">
-        <summary>Campaign tracking</summary>
-        <div class="example-content"><p class="workflow-intro">I also used Google Sheets and automation to organize active campaigns, follow-up status, and reporting inputs, reducing repetitive cleanup.</p><div class="case-tags"><span>Google Sheets</span></div></div>
+        <summary>Campaign tracking and reporting</summary>
+        <div class="example-content"><p class="workflow-intro">I tracked campaign work in Asana, worked with Salesforce reports and exports, and helped configure emailed summaries of campaign performance.</p><div class="case-tags"><span>Asana</span><span>Salesforce</span></div></div>
+      </details>
+      <details class="work-example" id="acquisition-example">
+        <summary>Acquisition prospecting</summary>
+        <div class="example-content"><p class="workflow-intro">When the team wanted to identify potential acquisition targets in Florida, I built a local Python script to search the web for smaller storage businesses. I enriched the resulting contact list through ZoomInfo and created a Salesforce outreach campaign.</p><div class="case-tags"><span>Python</span><span>ZoomInfo</span><span>Salesforce</span></div></div>
+      </details>
+      <details class="work-example" id="pacer-example">
+        <summary>Court-record research for storage outreach</summary>
+        <div class="example-content"><p class="workflow-intro">I used PACER bankruptcy records to identify businesses that might need document storage during liquidation or restructuring. The project began with downloaded records, then developed into a connected workflow for identifying new cases and assessing potential storage relevance with AI.</p><p class="workflow-intro">Relevant contact information and case context supported custom fields in Pardot and automated service outreach through sales aliases.</p><div class="case-tags"><span>PACER</span><span>Pardot</span></div></div>
       </details>
     </div>
   </section>

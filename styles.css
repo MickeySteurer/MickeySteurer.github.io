@@ -298,3 +298,22 @@ footer{padding:28px max(24px,calc((100% - 1180px)/2));background:#080d18;color:#
 .workflow-steps .human-step{background:#e4eaff;border-left-color:#3f5fe8}
 .campaign-tracking{margin-top:24px;padding:0 38px}.campaign-tracking .work-example{margin:0}.campaign-tracking .case-tags{margin-top:16px}
 @media(max-width:680px){.response-paths{grid-template-columns:1fr}.response-paths>div{padding:18px}.campaign-tracking{padding:0 24px}.workflow-steps li{padding:16px 14px 16px 44px}.workflow-steps li::before{left:14px;top:16px}}
+
+/* Connected reply flow; deferred interest carries the detailed story. */
+.flow-intake{list-style:none;margin:4px auto 0;padding:0;display:grid;grid-template-columns:1fr;gap:20px;max-width:480px}
+.flow-intake li{position:relative;border:1px solid #cbd3e7;border-radius:10px;padding:16px;background:#eef0f7;text-align:center}
+.flow-intake li+li::before{content:"";position:absolute;width:2px;height:20px;background:#a5b2d5;left:50%;top:-21px}
+.flow-intake strong,.flow-intake span{display:block;font-size:16px;line-height:1.5}.flow-intake span{margin-top:5px;color:var(--muted);font-size:14px}
+.flow-label{position:relative;margin:0;padding:28px 0 18px;text-align:center;font-size:14px;color:var(--muted);font-weight:600}
+.flow-label::before{content:"";position:absolute;height:20px;width:2px;top:0;left:50%;background:#a5b2d5}
+.reply-flow .response-paths{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.reply-flow .response-paths>.deferred-path{grid-column:1/-1;background:#e9eeff;border-color:#a4b4ee;padding:24px}
+.deferred-path>h4{color:#243b8c;font-size:21px}
+.deferred-steps{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:24px}
+.deferred-steps li{position:relative;padding:18px 20px;border:1px solid #c5d0ee;border-radius:10px;background:var(--paper-bright)}
+.deferred-steps li+li::before{content:"";position:absolute;left:30px;top:-25px;width:2px;height:24px;background:#8398d6}
+.deferred-steps strong{font-size:16px;line-height:1.5}.deferred-steps p{margin-top:6px}
+.deferred-steps .sales-handoff{border-color:#7187ca;background:#f3f5ff}
+.supporting-work .work-example+.work-example{margin-top:0}
+.supporting-work .workflow-intro{max-width:850px}
+@media(max-width:680px){.flow-intake{grid-template-columns:1fr;gap:20px}.flow-intake li+li::before{width:2px;height:20px;left:50%;top:-21px}.reply-flow .response-paths{grid-template-columns:1fr}.reply-flow .response-paths>.deferred-path{padding:18px}.deferred-steps li{padding:16px}.flow-intake li{text-align:left}}
