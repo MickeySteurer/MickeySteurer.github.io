@@ -1,0 +1,11 @@
+CAMPAIGN QA CHECKLIST
+Michael Steurer | Portfolio example
+
+Illustrative checklist based on approved work scope; not a historical campaign record.
+
+1. Audience: review the selected list and opt-out logic.
+2. Email: test links and check tracking parameters.
+3. Landing page: check copy, form behavior, and completion actions.
+4. Salesforce: validate lead source, campaign membership, and routing.
+5. Follow-up: check who receives responses and owns the next step.
+6. After launch: review responses, reporting inputs, and campaign cleanup.

@@ -1,0 +1,2 @@
+sample_type,vendor,invoice_number,issue_date,due_date,subtotal,shipping,total,currency
+Fictional portfolio reconstruction,Example Studio,DEMO-1042,2026-09-01,2026-09-30,240.00,18.00,258.00,USD
