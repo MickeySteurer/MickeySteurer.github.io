@@ -60,10 +60,10 @@
     <div class="hero-ambient" aria-hidden="true"></div>
     <div class="hero-rule" aria-hidden="true"></div>
     <div class="hero-content">
-      <p class="eyebrow hero-kicker">Michael Steurer · West New York, NJ</p>
-      <h1 id="hero-title">Marketing operations.<br><span class="hero-emphasis">Digital marketing.</span></h1>
-      <p class="hero-intro">I build email campaigns, improve websites, and automate the repetitive work that slows teams down. I bring together clear communication, organized data, and practical tools to keep marketing moving.</p>
-      <p class="availability-line">Open to NYC hybrid and U.S. remote roles</p>
+      <p class="eyebrow hero-kicker">West New York, NJ</p>
+      <h1 id="hero-title">I’m Michael Steurer.</h1>
+      <p class="hero-intro">I work across email campaigns and websites, with a hands-on approach to the processes behind them. When a task keeps eating up someone’s time, I like figuring out a better way to do it.</p>
+      <p class="availability-line">Open to NYC hybrid and remote roles.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="#work">View selected work <span aria-hidden="true">↓</span></a>
         <a class="button button-secondary" href="Michael_Steurer_Resume.pdf" download>Download resume <span aria-hidden="true">↓</span></a>
@@ -74,105 +74,87 @@
   </section>
 
   <section class="work-section" id="work" aria-labelledby="work-title">
-    <div class="section-heading" data-reveal><p class="eyebrow">Selected work</p><div><h2 id="work-title">Projects &amp; workflows</h2><p class="work-note">Selected work in email campaigns, web publishing, and process improvement.</p></div></div>
+    <div class="section-heading" data-reveal><p class="eyebrow">Selected work</p><div><h2 id="work-title">Projects &amp; workflows</h2><p class="work-note">A closer look at the processes I built and the problems they helped solve.</p></div></div>
     <div class="case-list">
       <article class="case-study case-featured" data-reveal>
         <div class="case-index">01</div>
-        <div class="case-title"><p class="project-type">Workflow automation</p><h3>Deferred-interest follow-up</h3></div>
-        <div class="case-details">
-          <div><span class="detail-label">Challenge</span><p>Requests to reconnect later needed to become scheduled follow-ups.</p></div>
-          <div><span class="detail-label">What I built</span><p>Connected replies to contact matching and scheduled outreach, so requests to reconnect could become a planned next step.</p></div>
-          <div><span class="detail-label">Result</span><p>Less manual monitoring of replies and upcoming outreach.</p></div>
-        </div>
-        <div class="automation-map" role="group" aria-label="Deferred-interest automation process">
-          <div style="--step:0"><small>01</small><strong>Reply</strong><span>Interest deferred</span></div><b style="--step:0" aria-hidden="true">→</b>
-          <div style="--step:1"><small>02</small><strong>Classify</strong><span>Response identified</span></div><b style="--step:1" aria-hidden="true">→</b>
-          <div style="--step:2"><small>03</small><strong>Match</strong><span>Contact located</span></div><b style="--step:2" aria-hidden="true">→</b>
-          <div style="--step:3"><small>04</small><strong>Enroll</strong><span>List + program</span></div><b style="--step:3" aria-hidden="true">→</b>
-          <div style="--step:4"><small>05</small><strong>Follow up</strong><span>Future outreach</span></div>
-        </div>
+        <div class="case-title"><h3>Sales replies and personalized follow-up</h3></div>
+        <p class="project-overview">A campaign reply could mean “let’s talk,” “not interested,” or “try me later.” I connected reply classification to the right next step, including personalized outreach when someone asked to reconnect.</p>
         <details class="work-example" id="follow-up-example">
-          <summary>See how follow-up is organized<span class="summary-label">Illustrative example</span></summary>
+          <summary>Explore the four response paths</summary>
           <div class="example-content">
-
-            <div class="example-columns">
-              <div><span class="detail-label">Incoming reply</span><blockquote>“Please get back in touch on October 1.”</blockquote><p>Jordan Lee<br><span class="sample-address">jordan.lee@example.com</span></p></div>
-              <div><span class="detail-label">Example follow-up record</span><dl class="record"><div><dt>Contact match</dt><dd>Jordan Lee</dd></div><div><dt>Response</dt><dd>Deferred interest</dd></div><div><dt>Follow-up date</dt><dd>October 1, 2026</dd></div><div><dt>Next step</dt><dd>Scheduled follow-up</dd></div></dl></div>
+            <p class="workflow-intro">Replies to sales aliases arrived in Gmail. Zapier passed them to OpenAI’s API for classification, then the workflow branched by intent.</p>
+            <div class="response-paths">
+              <div><h4>Positive intent</h4><p>Add or restore Salesforce and Pardot records where needed, then notify Sales. Contacts were rotated out to manage contact costs, so interested respondents sometimes needed to be added back.</p><p class="path-outcome">Salesperson writes the reply.</p></div>
+              <div><h4>Negative intent</h4><p>Exclude the contact from further emails in that campaign.</p><p class="path-outcome">Current campaign stops for that contact.</p></div>
+              <div><h4>Do not contact</h4><p>Update mailability fields and the do-not-contact list to stop further outreach.</p><p class="path-outcome">Contact is excluded from outreach.</p></div>
+              <div><h4>Deferred interest</h4><p>Extract the requested timing and reason with OpenAI’s API. Custom fields I created in Pardot stored that context for a personalized email at the requested time.</p><p class="path-outcome">Scheduled email is automated; Sales personally handles interested replies.</p></div>
             </div>
-
-
+            <p class="workflow-note">Engagement Studio supported the connected follow-up workflow.</p>
           </div>
         </details>
-        <div class="case-tags"><span>Account Engagement</span><span>Engagement Studio</span><span>Workflow automation</span></div>
+        <div class="case-tags"><span>Gmail</span><span>Zapier</span><span>OpenAI API</span><span>Pardot</span><span>Engagement Studio</span></div>
       </article>
 
       <article class="case-study case-grid" data-reveal>
         <div class="case-index">02</div>
-        <div class="case-title"><p class="project-type">Data workflow automation</p><h3>Invoice parsing into structured data</h3></div>
-        <div class="case-stack">
-          <div><span class="detail-label">Need</span><p>Invoice details arrived in documents but were needed in a consistent spreadsheet.</p></div>
-          <div><span class="detail-label">What I built</span><p>Built a script to extract invoice fields into a spreadsheet.</p></div>
-          <div><span class="detail-label">Result</span><p>Consistent records for review and tracking.</p></div>
-        </div>
+        <div class="case-title"><h3>Invoice intake and budget tracking</h3></div>
+        <p class="project-overview">Dropping an invoice into Drive started the intake process. I connected extraction, duplicate removal, and budget tracking so incoming costs were visible while confirmed figures stayed separate.</p>
         <details class="work-example" id="invoice-example">
-          <summary>See the input and output<span class="summary-label">Illustrative example</span></summary>
+          <summary>Follow an invoice through the workflow</summary>
           <div class="example-content">
-
-            <div class="example-columns">
-              <div class="sample-document"><span class="detail-label">Example input</span><h4>Example Studio</h4><p>Invoice DEMO-1042<br>Issued September 1, 2026<br>Due September 30, 2026</p><p>Print materials: $240.00<br>Shipping: $18.00<br><strong>Total: $258.00 USD</strong></p></div>
-              <div><span class="detail-label">Example spreadsheet record</span><dl class="record"><div><dt>Vendor</dt><dd>Example Studio</dd></div><div><dt>Invoice</dt><dd>DEMO-1042</dd></div><div><dt>Due date</dt><dd>2026-09-30</dd></div><div><dt>Total</dt><dd>258.00</dd></div><div><dt>Currency</dt><dd>USD</dd></div></dl></div>
-            </div>
-            <p class="example-takeaway">Document fields become a row that can be sorted and reviewed.</p>
-
+            <ol class="workflow-steps">
+              <li><strong>Upload to Google Drive</strong><p>The invoice was automatically scanned and its details extracted into an invoice sheet.</p></li>
+              <li><strong>Remove duplicates and organize files</strong><p>The workflow removed duplicate files and entries, then moved processed invoices into the processed folder.</p></li>
+              <li><strong>Update the temporary budget</strong><p>The invoice sheet fed a temporary budget with visualizations that changed as invoices came in.</p></li>
+              <li class="human-step"><strong>Confirm the changes</strong><p>A person reviewed and confirmed the changes before they could reach the tracked budget.</p></li>
+              <li><strong>Save to the tracked budget</strong><p>After confirmation, the workflow automatically updated the stable tracked budget.</p></li>
+            </ol>
           </div>
         </details>
+        <div class="case-tags"><span>Google Drive</span><span>Google Apps Script</span><span>Google Sheets</span></div>
       </article>
 
       <article class="case-study case-grid" data-reveal>
         <div class="case-index">03</div>
-        <div class="case-title"><p class="project-type">Routing automation</p><h3>ZIP-based sales assignment</h3></div>
-        <div class="case-stack">
-          <div><span class="detail-label">Need</span><p>New prospects had to be assigned using the company location closest to their ZIP code.</p></div>
-          <div><span class="detail-label">What I built</span><p>Built a script to match prospect locations with the appropriate sales representative.</p></div>
-          <div><span class="detail-label">Result</span><p>Repeatable assignments with less manual lookup.</p></div>
-        </div>
+        <div class="case-title"><h3>Territory-based sales assignment</h3></div>
+        <p class="project-overview">Combining facility-by-facility contact exports made sales assignment cumbersome. I built location-based routing to connect prospects with a relevant facility and sales alias.</p>
         <details class="work-example" id="routing-example">
-          <summary>See an assignment example<span class="summary-label">Illustrative example</span></summary>
+          <summary>See how prospects were assigned</summary>
           <div class="example-content">
-
-            <p class="example-takeaway">For this illustrative comparison, the prospect is assigned to the nearest office. Distances and names are sample values.</p>
-            <div class="table-scroll"><table class="sample-table"><caption>Example office comparison</caption><thead><tr><th scope="col">Office</th><th scope="col">Distance</th><th scope="col">Representative</th><th scope="col">Result</th></tr></thead><tbody><tr class="selected-row"><th scope="row">Office A</th><td>8 miles</td><td>Alex</td><td>Assigned · nearest</td></tr><tr><th scope="row">Office B</th><td>19 miles</td><td>Sam</td><td>Not selected</td></tr><tr><th scope="row">Office C</th><td>32 miles</td><td>Taylor</td><td>Not selected</td></tr></tbody></table></div>
-
+            <ol class="workflow-steps">
+              <li><strong>Start with prospect locations</strong><p>ZoomInfo and other sources supplied contact data. The earlier process involved combining multiple exports for individual facilities.</p></li>
+              <li><strong>Compare nearby facilities</strong><p>Google Apps Script compared prospect locations with company facilities to identify a relevant match.</p></li>
+              <li><strong>Assign the sales alias in Pardot</strong><p>The assignment connected prospects with Sales serving the relevant area and rates.</p></li>
+              <li><strong>Flag exceptions</strong><p>Distant prospects and ambiguous matches between facilities were flagged for attention.</p></li>
+            </ol>
           </div>
         </details>
+        <div class="case-tags"><span>Google Apps Script</span><span>Pardot</span></div>
       </article>
-      <article class="case-study case-grid" id="campaign-work">
+
+      <article class="case-study case-grid" data-reveal>
         <div class="case-index">04</div>
-        <div class="case-title"><p class="project-type">Campaign &amp; web operations</p><h3>From setup through sales follow-up</h3></div>
-        <div class="case-stack">
-          <div><span class="detail-label">Campaign setup</span><p>Built emails, lists, forms, and completion actions in Account Engagement, then tested links and landing-page behavior.</p></div>
-          <div><span class="detail-label">CRM handoff</span><p>Checked lead sources, campaign membership, routing, and follow-up ownership in Salesforce.</p></div>
-          <div><span class="detail-label">Web execution</span><p>Updated WordPress and Elementor pages, metadata, internal links, and content, with publishing and post-launch checks.</p></div>
-        </div>
-        <details class="work-example" id="campaign-example">
-          <summary>See the campaign checklist<span class="summary-label"></span></summary>
+        <div class="case-title"><h3>Creative file organization</h3></div>
+        <p class="project-overview">Useful creative work is easier to reuse when you can find it. Working with our designer, I built a naming workflow that used project emails to make a Drive asset library easier to search.</p>
+        <details class="work-example" id="creative-example">
+          <summary>See how context became file names</summary>
           <div class="example-content">
-
-            <ol class="qa-list"><li><strong>Audience:</strong> review the selected list and opt-out logic.</li><li><strong>Email:</strong> test links and check tracking parameters.</li><li><strong>Landing page:</strong> check copy, form behavior, and completion actions.</li><li><strong>Salesforce:</strong> validate lead source, campaign membership, and routing.</li><li><strong>Follow-up:</strong> check who receives responses and owns the next step.</li><li><strong>After launch:</strong> review responses, reporting inputs, and campaign cleanup.</li></ol>
-
+            <ol class="workflow-steps">
+              <li><strong>Work with the designer</strong><p>We used the library’s naming conventions and the designer’s project correspondence, with their consent.</p></li>
+              <li><strong>Read the project context</strong><p>Email language, dates, and project types helped identify what each asset was for. Consistent wording in recurring requests made that context useful.</p></li>
+              <li><strong>Apply useful names in Drive</strong><p>Google Apps Script used that context to name files, making existing assets easier to retrieve and reuse.</p></li>
+            </ol>
           </div>
         </details>
+        <div class="case-tags"><span>Google Drive</span><span>Gmail</span><span>Google Apps Script</span></div>
       </article>
-      <article class="case-study case-grid">
-        <div class="case-index">05</div>
-        <div class="case-title"><p class="project-type">Process improvement</p><h3>Other workflow projects</h3></div>
-        <p class="project-overview">Smaller automations for organizing replies, files, and campaign activity.</p>
-        <details class="work-example" id="other-projects"><summary>Explore three more projects</summary><div class="example-content other-project-list">
-          <div><h4>Email-reply classification</h4><p>Built an AI-assisted workflow to categorize prospect replies and give sales representatives more context.</p></div>
-          <div><h4>Context-based file renaming</h4><p>Used item context, email history, or notes to give files more useful names.</p></div>
-          <div><h4>Campaign tracking</h4><p>Used spreadsheets and automation to organize active campaigns, follow-up status, and reporting inputs.</p></div>
-        </div></details>
-      </article>
+    </div>
+    <div class="campaign-tracking" id="other-projects">
+      <details class="work-example" id="campaign-example">
+        <summary>Campaign tracking</summary>
+        <div class="example-content"><p class="workflow-intro">I also used Google Sheets and automation to organize active campaigns, follow-up status, and reporting inputs, reducing repetitive cleanup.</p><div class="case-tags"><span>Google Sheets</span></div></div>
+      </details>
     </div>
   </section>
 
@@ -183,12 +165,12 @@
   <section class="experience-section" id="experience" aria-labelledby="experience-title">
     <div class="plain-heading"><h2 id="experience-title">Experience</h2></div>
     <div class="timeline">
-      <article class="timeline-row" data-reveal>
+      <article class="timeline-row" id="campaign-work" data-reveal>
         <div class="timeline-meta"><span>Mar 2025 - Jun 2026</span><span>Jersey City, NJ | Hybrid</span></div>
         <div class="timeline-main"><h3>Marketing Coordinator <span>(Marketing Operations)</span></h3><p class="company">GRM Information Management Services / VisualVault</p><ul>
           <li>Executed 50+ Engagement Studio workflows from audience setup and email builds through QA, launch, routing, response handling, and follow-up.</li>
           <li>Managed WordPress and Elementor workflows from copy revision and staging through SEO review, publishing, and post-launch QA.</li>
-          <li>Built practical automations across response handling, structured data extraction, file operations, routing, and campaign tracking.</li>
+          <li>Built practical automations across response handling, structured data extraction, file operations, and routing.</li>
           <li>Maintained campaign and CRM accuracy through lead-source checks, campaign-member cleanup, UTM validation, and dashboard inputs.</li>
         </ul></div>
       </article>
@@ -204,7 +186,7 @@
     <div class="tool-list">
       <article data-reveal><span>01</span><h3>CRM &amp; campaigns</h3><p>Salesforce CRM · Account Engagement (Pardot) · Engagement Studio · 6sense</p></article>
       <article data-reveal><span>02</span><h3>Web &amp; analytics</h3><p>WordPress · Elementor · Google Search Console · GA4</p></article>
-      <article data-reveal><span>03</span><h3>Automation &amp; scripting</h3><p>Zapier · Google Apps Script · Python · OpenAI/API workflows · Google Sheets</p></article>
+      <article data-reveal><span>03</span><h3>Automation &amp; scripting</h3><p>Zapier · Google Apps Script · Python · OpenAI API · Google Sheets</p></article>
       <article data-reveal><span>04</span><h3>Creative</h3><p>Photoshop · Illustrator · Premiere Pro · Adobe Express · Canva · CapCut</p></article>
     </div>
   </section>

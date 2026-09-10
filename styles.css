@@ -280,3 +280,21 @@ footer{padding:28px max(24px,calc((100% - 1180px)/2));background:#080d18;color:#
 .summary-label:empty{display:none}
 @media(max-width:980px){.project-overview{grid-column:2}}
 @media(max-width:680px){.approach-section{grid-template-columns:1fr;gap:16px;padding:32px 0}.plain-heading h2,.approach-section>h2{font-size:28px}.experience-section,.tools-section{padding:40px 0}.project-overview{grid-column:1}}
+
+/* Actual workflow details, with clear outcomes and a visible confirmation step. */
+.workflow-intro,.workflow-note{font-size:16px;line-height:1.7;color:var(--muted);margin:0 0 22px}
+.workflow-note{margin:20px 0 0}
+.response-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.response-paths>div{padding:20px;background:#eef0f7;border:1px solid #dce0ea;border-radius:12px}
+.response-paths h4{margin:0 0 10px;font-size:18px;line-height:1.4}
+.response-paths p{font-size:16px;line-height:1.65;margin:0;color:var(--muted)}
+.response-paths .path-outcome{margin-top:14px;font-weight:650;color:#243b8c}
+.workflow-steps{list-style:none;counter-reset:workflow;display:grid;gap:0;padding:0;margin:0}
+.workflow-steps li{counter-increment:workflow;position:relative;padding:18px 18px 18px 58px;border-left:2px solid #cbd3e7;background:#eef0f7}
+.workflow-steps li+li{border-top:1px solid #dce0ea}
+.workflow-steps li::before{content:counter(workflow);position:absolute;left:18px;top:18px;color:#243b8c;font-weight:700}
+.workflow-steps strong{font-size:16px;line-height:1.5}
+.workflow-steps p{margin:6px 0 0;color:var(--muted);font-size:16px;line-height:1.65}
+.workflow-steps .human-step{background:#e4eaff;border-left-color:#3f5fe8}
+.campaign-tracking{margin-top:24px;padding:0 38px}.campaign-tracking .work-example{margin:0}.campaign-tracking .case-tags{margin-top:16px}
+@media(max-width:680px){.response-paths{grid-template-columns:1fr}.response-paths>div{padding:18px}.campaign-tracking{padding:0 24px}.workflow-steps li{padding:16px 14px 16px 44px}.workflow-steps li::before{left:14px;top:16px}}
