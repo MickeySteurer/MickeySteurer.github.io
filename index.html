@@ -73,7 +73,113 @@
     </div>
   </section>
 
-<section class="work-section" id="work" aria-labelledby="work-title"><h2 id="work-title">Selected projects</h2><div class="project-grid"><article class="project-entry"><h3>Follow-up automation</h3><p>Connected campaign replies to contact matching and scheduled outreach for people who asked to hear back later.</p></article><article class="project-entry"><h3>Email-reply classification</h3><p>Built an AI-assisted workflow to categorize prospect replies and give sales representatives more context before responding.</p></article><article class="project-entry"><h3>Context-based file renaming</h3><p>Built a script that used item context, email history, or notes to give files more useful names.</p></article><article class="project-entry"><h3>Invoice data extraction</h3><p>Built a workflow that extracted invoice fields into a consistent spreadsheet, reducing repetitive data entry.</p></article><article class="project-entry"><h3>Location-based lead assignment</h3><p>Automated sales assignments using the company location closest to a prospect’s ZIP code.</p></article><article class="project-entry"><h3>Campaign tracking</h3><p>Used spreadsheets and automation to organize active campaigns, follow-up status, and reporting inputs.</p></article></div></section>
+  <section class="work-section" id="work" aria-labelledby="work-title">
+    <div class="section-heading" data-reveal><p class="eyebrow">Selected work</p><div><h2 id="work-title">Projects &amp; workflows</h2><p class="work-note">Selected work in email campaigns, web publishing, and process improvement.</p></div></div>
+    <div class="case-list">
+      <article class="case-study case-featured" data-reveal>
+        <div class="case-index">01</div>
+        <div class="case-title"><p class="project-type">Workflow automation</p><h3>Deferred-interest follow-up</h3></div>
+        <div class="case-details">
+          <div><span class="detail-label">Challenge</span><p>Requests to reconnect later needed to become scheduled follow-ups.</p></div>
+          <div><span class="detail-label">What I built</span><p>Connected replies to contact matching and scheduled outreach, so requests to reconnect could become a planned next step.</p></div>
+          <div><span class="detail-label">Result</span><p>Less manual monitoring of replies and upcoming outreach.</p></div>
+        </div>
+        <div class="automation-map" role="group" aria-label="Deferred-interest automation process">
+          <div style="--step:0"><small>01</small><strong>Reply</strong><span>Interest deferred</span></div><b style="--step:0" aria-hidden="true">→</b>
+          <div style="--step:1"><small>02</small><strong>Classify</strong><span>Response identified</span></div><b style="--step:1" aria-hidden="true">→</b>
+          <div style="--step:2"><small>03</small><strong>Match</strong><span>Contact located</span></div><b style="--step:2" aria-hidden="true">→</b>
+          <div style="--step:3"><small>04</small><strong>Enroll</strong><span>List + program</span></div><b style="--step:3" aria-hidden="true">→</b>
+          <div style="--step:4"><small>05</small><strong>Follow up</strong><span>Future outreach</span></div>
+        </div>
+        <details class="work-example" id="follow-up-example">
+          <summary>See how follow-up is organized<span class="summary-label">Illustrative example</span></summary>
+          <div class="example-content">
+
+            <div class="example-columns">
+              <div><span class="detail-label">Incoming reply</span><blockquote>“Please get back in touch on October 1.”</blockquote><p>Jordan Lee<br><span class="sample-address">jordan.lee@example.com</span></p></div>
+              <div><span class="detail-label">Example follow-up record</span><dl class="record"><div><dt>Contact match</dt><dd>Jordan Lee</dd></div><div><dt>Response</dt><dd>Deferred interest</dd></div><div><dt>Follow-up date</dt><dd>October 1, 2026</dd></div><div><dt>Next step</dt><dd>Scheduled follow-up</dd></div></dl></div>
+            </div>
+
+
+          </div>
+        </details>
+        <div class="case-tags"><span>Account Engagement</span><span>Engagement Studio</span><span>Workflow automation</span></div>
+      </article>
+
+      <article class="case-study case-grid" data-reveal>
+        <div class="case-index">02</div>
+        <div class="case-title"><p class="project-type">Data workflow automation</p><h3>Invoice parsing into structured data</h3></div>
+        <div class="case-stack">
+          <div><span class="detail-label">Need</span><p>Invoice details arrived in documents but were needed in a consistent spreadsheet.</p></div>
+          <div><span class="detail-label">What I built</span><p>Built a script to extract invoice fields into a spreadsheet.</p></div>
+          <div><span class="detail-label">Result</span><p>Consistent records for review and tracking.</p></div>
+        </div>
+        <details class="work-example" id="invoice-example">
+          <summary>See the input and output<span class="summary-label">Illustrative example</span></summary>
+          <div class="example-content">
+
+            <div class="example-columns">
+              <div class="sample-document"><span class="detail-label">Example input</span><h4>Example Studio</h4><p>Invoice DEMO-1042<br>Issued September 1, 2026<br>Due September 30, 2026</p><p>Print materials: $240.00<br>Shipping: $18.00<br><strong>Total: $258.00 USD</strong></p></div>
+              <div><span class="detail-label">Example spreadsheet record</span><dl class="record"><div><dt>Vendor</dt><dd>Example Studio</dd></div><div><dt>Invoice</dt><dd>DEMO-1042</dd></div><div><dt>Due date</dt><dd>2026-09-30</dd></div><div><dt>Total</dt><dd>258.00</dd></div><div><dt>Currency</dt><dd>USD</dd></div></dl></div>
+            </div>
+            <p class="example-takeaway">Document fields become a row that can be sorted and reviewed.</p>
+
+          </div>
+        </details>
+      </article>
+
+      <article class="case-study case-grid" data-reveal>
+        <div class="case-index">03</div>
+        <div class="case-title"><p class="project-type">Routing automation</p><h3>ZIP-based sales assignment</h3></div>
+        <div class="case-stack">
+          <div><span class="detail-label">Need</span><p>New prospects had to be assigned using the company location closest to their ZIP code.</p></div>
+          <div><span class="detail-label">What I built</span><p>Built a script to match prospect locations with the appropriate sales representative.</p></div>
+          <div><span class="detail-label">Result</span><p>Repeatable assignments with less manual lookup.</p></div>
+        </div>
+        <details class="work-example" id="routing-example">
+          <summary>See an assignment example<span class="summary-label">Illustrative example</span></summary>
+          <div class="example-content">
+
+            <p class="example-takeaway">For this illustrative comparison, the prospect is assigned to the nearest office. Distances and names are sample values.</p>
+            <div class="table-scroll"><table class="sample-table"><caption>Example office comparison</caption><thead><tr><th scope="col">Office</th><th scope="col">Distance</th><th scope="col">Representative</th><th scope="col">Result</th></tr></thead><tbody><tr class="selected-row"><th scope="row">Office A</th><td>8 miles</td><td>Alex</td><td>Assigned · nearest</td></tr><tr><th scope="row">Office B</th><td>19 miles</td><td>Sam</td><td>Not selected</td></tr><tr><th scope="row">Office C</th><td>32 miles</td><td>Taylor</td><td>Not selected</td></tr></tbody></table></div>
+
+          </div>
+        </details>
+      </article>
+      <article class="case-study case-grid" id="campaign-work">
+        <div class="case-index">04</div>
+        <div class="case-title"><p class="project-type">Campaign &amp; web operations</p><h3>From setup through sales follow-up</h3></div>
+        <div class="case-stack">
+          <div><span class="detail-label">Campaign setup</span><p>Built emails, lists, forms, and completion actions in Account Engagement, then tested links and landing-page behavior.</p></div>
+          <div><span class="detail-label">CRM handoff</span><p>Checked lead sources, campaign membership, routing, and follow-up ownership in Salesforce.</p></div>
+          <div><span class="detail-label">Web execution</span><p>Updated WordPress and Elementor pages, metadata, internal links, and content, with publishing and post-launch checks.</p></div>
+        </div>
+        <details class="work-example" id="campaign-example">
+          <summary>See the campaign checklist<span class="summary-label"></span></summary>
+          <div class="example-content">
+
+            <ol class="qa-list"><li><strong>Audience:</strong> review the selected list and opt-out logic.</li><li><strong>Email:</strong> test links and check tracking parameters.</li><li><strong>Landing page:</strong> check copy, form behavior, and completion actions.</li><li><strong>Salesforce:</strong> validate lead source, campaign membership, and routing.</li><li><strong>Follow-up:</strong> check who receives responses and owns the next step.</li><li><strong>After launch:</strong> review responses, reporting inputs, and campaign cleanup.</li></ol>
+
+          </div>
+        </details>
+      </article>
+      <article class="case-study case-grid">
+        <div class="case-index">05</div>
+        <div class="case-title"><p class="project-type">Process improvement</p><h3>Other workflow projects</h3></div>
+        <p class="project-overview">Smaller automations for organizing replies, files, and campaign activity.</p>
+        <details class="work-example" id="other-projects"><summary>Explore three more projects</summary><div class="example-content other-project-list">
+          <div><h4>Email-reply classification</h4><p>Built an AI-assisted workflow to categorize prospect replies and give sales representatives more context.</p></div>
+          <div><h4>Context-based file renaming</h4><p>Used item context, email history, or notes to give files more useful names.</p></div>
+          <div><h4>Campaign tracking</h4><p>Used spreadsheets and automation to organize active campaigns, follow-up status, and reporting inputs.</p></div>
+        </div></details>
+      </article>
+    </div>
+  </section>
+
+  <section class="approach-section" aria-labelledby="approach-title">
+    <h2 id="approach-title">How I work</h2><div class="approach-copy"><p>I like making complex work easier to carry out. My psychology background informs how I think about the audience; my marketing experience keeps me focused on clear instructions, useful content, and dependable follow-through.</p></div>
+  </section>
+
   <section class="experience-section" id="experience" aria-labelledby="experience-title">
     <div class="plain-heading"><h2 id="experience-title">Experience</h2></div>
     <div class="timeline">
