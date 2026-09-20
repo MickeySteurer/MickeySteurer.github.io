@@ -78,8 +78,8 @@
     <div class="case-list">
       <article class="case-study case-featured" data-reveal>
         <div class="case-index">01</div>
-        <div class="case-title"><h3>Sales replies and personalized follow-up</h3></div>
-        <p class="project-overview">“Try me again next quarter” needed to become more than a note in an inbox. I built a workflow that captured when and why someone wanted to reconnect, then used that context for personalized outreach at the right time.</p>
+        <div class="case-title"><h3>Prospect replies and personalized follow-up</h3></div>
+        <p class="project-overview">“Try me again next quarter” needed to become more than a note in an inbox. I built a workflow that captured when and why a prospect wanted to reconnect, then used that context for personalized outreach at the right time.</p>
         <details class="work-example" id="follow-up-example">
           <summary>See how a reply becomes a future conversation</summary>
           <div class="example-content reply-flow">
@@ -91,11 +91,11 @@
             <h4 class="flow-label">Selected response paths</h4>
             <div class="response-paths">
               <div><h4>Positive intent</h4><p>Add or restore Salesforce and Pardot records where needed, then notify Sales.</p><p class="path-outcome">Salesperson writes the reply.</p></div>
-              <div><h4>Negative intent</h4><p>Exclude the contact from further emails in that campaign.</p><p class="path-outcome">Current campaign stops.</p></div>
+              <div><h4>Negative intent</h4><p>Exclude the prospect from further emails in that campaign.</p><p class="path-outcome">Current campaign stops.</p></div>
               <div><h4>Do not contact</h4><p>Update mailability fields and the do-not-contact list.</p><p class="path-outcome">Further outreach stops.</p></div>
               <div class="deferred-path"><h4>Deferred interest</h4><p>Turn a request to reconnect later into a scheduled, personalized follow-up.</p>
                 <ol class="deferred-steps" aria-label="Deferred-interest follow-up">
-                  <li><strong>Extract the timing and reason</strong><p>OpenAI’s API identified when the contact wanted to hear from us and the context behind the request.</p></li>
+                  <li><strong>Extract the timing and reason</strong><p>OpenAI’s API identified when the prospect wanted to hear from us and the context behind the request.</p></li>
                   <li><strong>Save the context in Pardot</strong><p>Custom fields I created stored the requested timing and reason for the later email.</p></li>
                   <li><strong>Schedule personalized outreach</strong><p>The follow-up referenced the earlier request, with Engagement Studio supporting the connected workflow.</p></li>
                   <li><strong>Send automatically at the requested time</strong><p>The scheduled email re-opened the conversation using the saved context.</p></li>
@@ -103,7 +103,6 @@
                 </ol>
               </div>
             </div>
-            <p class="workflow-note">Contacts were rotated out to manage contact costs, so an interested respondent sometimes needed to be added back to Salesforce and Pardot.</p>
           </div>
         </details>
         <div class="case-tags"><span>Gmail</span><span>Zapier</span><span>OpenAI API</span><span>Pardot</span><span>Engagement Studio</span></div>
@@ -132,12 +131,12 @@
       <article class="case-study case-grid" data-reveal>
         <div class="case-index">03</div>
         <div class="case-title"><h3>Territory-based sales assignment</h3></div>
-        <p class="project-overview">I built a workflow that took regional contact exports and matched prospects with a relevant facility and sales alias, making location-based assignment repeatable.</p>
+        <p class="project-overview">I built a workflow that matched prospects from regional exports with a relevant facility and sales alias, making location-based assignment repeatable.</p>
         <details class="work-example" id="routing-example">
           <summary>See how prospects were assigned</summary>
           <div class="example-content">
             <ol class="workflow-steps">
-              <li><strong>Start with prospect locations</strong><p>Regional exports from ZoomInfo and other sources supplied the contact data for the routing workflow.</p></li>
+              <li><strong>Start with prospect locations</strong><p>Regional exports from ZoomInfo and other sources supplied prospect locations for the routing workflow.</p></li>
               <li><strong>Compare nearby facilities</strong><p>Google Apps Script compared prospect locations with company facilities to identify a relevant match.</p></li>
               <li><strong>Assign the sales alias in Pardot</strong><p>The assignment connected prospects with Sales serving the relevant area and rates.</p></li>
               <li><strong>Flag exceptions</strong><p>Distant prospects and ambiguous matches between facilities were flagged for attention.</p></li>
