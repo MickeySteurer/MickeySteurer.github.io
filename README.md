@@ -6,7 +6,7 @@ Static HTML, CSS, and JavaScript. No build or package installation is required. 
 
 ## Content rules
 
-- Employment facts and claims follow master resume source pack v5.6, maintained separately from this public repository.
+- Employment facts and claims follow master resume source pack v5.8, maintained separately from this public repository.
 - The four expandable projects describe user-confirmed workflows. Sales replies are human-written; deferred outreach is scheduled automatically. Tracked-budget updates are automated only after human confirmation.
 - Historical files in `examples/` remain available at their existing URLs but are not linked from the page. Any fabricated records displayed in future must carry an “Illustrative example” label.
 - Do not infer extraction technology, duplicate-matching keys, polling intervals, named distance formulas, or road-distance APIs. Unresolved details are recorded in the private source pack.
