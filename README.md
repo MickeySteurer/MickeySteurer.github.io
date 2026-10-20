@@ -19,10 +19,21 @@ Validate local links and anchors, JavaScript syntax, structured metadata, exampl
 
 ## Portfolio analytics
 
-GA4 web stream `G-6VSZ7TZW09` measures the portfolio after visitors select Allow.
-Collection runs only on `mickeysteurer.github.io`. The footer's Analytics
-preferences control lets visitors change their choice. Decline disables further
-collection. `privacy.html` explains the data use. Local previews do not collect.
+GA4 web stream `G-6VSZ7TZW09` measures the portfolio without an automatic prompt.
+Collection runs only on `mickeysteurer.github.io`. A small, fixed bottom-right
+Privacy button opens preferences on request. Disable analytics stops all future
+collection, including cookie-free measurements. Previous choices are preserved.
+Global Privacy Control and Do Not Track suppress loading the Google tag entirely.
+`privacy.html` explains the data use. Local previews do not collect.
+
+Consent defaults must precede configuration: analytics storage denied globally,
+granted only in the US through Google's native region setting. Advertising
+storage, advertising user data, and personalization remain denied everywhere.
+An explicit Allow cookies choice grants analytics storage globally. No external
+geolocation service or browser timezone inference is used. Outside the US,
+default collection is cookie-free, not disabled. Consent mode does not itself
+establish a legal exemption; re-assess applicable requirements if the audience
+or purposes change. Do not describe denied storage as no data collection.
 
 - Automatic page views, visitors, and sessions measure site traffic.
 - `resume_click` measures clicks on the navigation, hero, and contact resume links.
@@ -30,12 +41,13 @@ collection. `privacy.html` explains the data use. Local previews do not collect.
   A click is not proof of a completed download or PDF read.
 - `project_open` measures openings of all seven project details controls.
   `project_id` and `project_title` identify the project. Closing does not count;
-  reopening counts again. Use user metrics for distinct visitors.
+  reopening counts again. Distinct-user/session metrics are limited without cookies.
 
 Use GA4 Realtime for immediate verification and event reports for ongoing counts.
 Event-scoped custom dimensions expose the event parameters in reports.
 No UTM links are required. Enhanced measurement may also emit `file_download`;
 do not add it to `resume_click` counts. Direct PDF visits bypass webpage tracking.
-Historical traffic cannot be recovered; consent choices and browser blocking
+Historical traffic cannot be recovered; privacy choices and browser blocking
 reduce measured totals. Optional account data sharing, advertising personalization,
 and Google signals are disabled.
+
