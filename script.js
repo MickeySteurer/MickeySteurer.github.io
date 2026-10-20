@@ -86,7 +86,7 @@
     if (started) return;
     started = true;
     window.dataLayer = window.dataLayer || [];
-    const gtag = (...args) => window.dataLayer.push(args);
+    function gtag() { window.dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag('js', new Date());
     gtag('config', measurementId, {
