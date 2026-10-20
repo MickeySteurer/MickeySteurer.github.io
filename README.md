@@ -19,24 +19,23 @@ Validate local links and anchors, JavaScript syntax, structured metadata, exampl
 
 ## Portfolio analytics
 
-Analytics is prepared in `script.js` and remains disabled until
-`measurementId` contains the portfolio's real GA4 web-stream ID (`G-...`).
-Collection is limited to `mickeysteurer.github.io`; local previews do not send data.
+GA4 web stream `G-6VSZ7TZW09` measures the portfolio after visitors select Allow.
+Collection runs only on `mickeysteurer.github.io`. The footer's Analytics
+preferences control lets visitors change their choice. Decline disables further
+collection. `privacy.html` explains the data use. Local previews do not collect.
 
-- GA4's automatic page views, visitors, and sessions measure site traffic.
+- Automatic page views, visitors, and sessions measure site traffic.
 - `resume_click` measures clicks on the navigation, hero, and contact resume links.
   `link_location` identifies placement; `resume_action` distinguishes open/download.
-  This does not confirm a completed download or PDF read.
+  A click is not proof of a completed download or PDF read.
 - `project_open` measures openings of all seven project details controls.
   `project_id` and `project_title` identify the project. Closing does not count;
   reopening counts again. Use user metrics for distinct visitors.
 
-Before merging, obtain the real measurement ID, activate it in `script.js`,
-and verify collection in GA4 Realtime or DebugView. Register event-scoped custom
-dimensions for `project_id`, `project_title`, `link_location`, and
-`resume_action` to use these parameters in standard reports.
-
+Use GA4 Realtime for immediate verification and event reports for ongoing counts.
+Event-scoped custom dimensions expose the event parameters in reports.
 No UTM links are required. Enhanced measurement may also emit `file_download`;
-do not add it to `resume_click` counts. Direct visits to the PDF bypass webpage
-tracking. Historical visits cannot be recovered, and browser blocking can reduce
-counts. Advertising personalization and Google signals are disabled in the tag.
+do not add it to `resume_click` counts. Direct PDF visits bypass webpage tracking.
+Historical traffic cannot be recovered; consent choices and browser blocking
+reduce measured totals. Optional account data sharing, advertising personalization,
+and Google signals are disabled.
