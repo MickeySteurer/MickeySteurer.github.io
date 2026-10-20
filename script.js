@@ -62,3 +62,62 @@
 
   requestAnimationFrame(() => root.classList.add('is-ready'));
 })();
+
+// Portfolio analytics. Set the public GA4 web-stream measurement ID here.
+// An empty ID keeps analytics disabled and makes no requests to Google.
+(() => {
+  const measurementId = '';
+  const productionHost = 'mickeysteurer.github.io';
+  if (!/^G-[A-Z0-9]+$/.test(measurementId) ||
+      window.location.hostname.toLowerCase() !== productionHost) return;
+
+  window.dataLayer = window.dataLayer || [];
+  const gtag = (...args) => window.dataLayer.push(args);
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', measurementId, {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false
+  });
+
+  const googleTag = document.createElement('script');
+  googleTag.async = true;
+  googleTag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+  document.head.appendChild(googleTag);
+
+  const sendEvent = (name, parameters) => {
+    gtag('event', name, { send_to: measurementId, ...parameters });
+  };
+
+  // Track all three resume links without delaying or changing navigation.
+  // This event measures link clicks, not confirmed downloads or PDF reads.
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest?.('a[href]');
+    if (!link) return;
+    const url = new URL(link.href, window.location.href);
+    if (url.origin !== window.location.origin ||
+        url.pathname !== '/Michael_Steurer_Resume.pdf') return;
+
+    const placement = link.closest('.site-header') ? 'navigation'
+      : link.closest('.hero') ? 'hero'
+      : link.closest('.contact-section') ? 'contact' : 'other';
+    sendEvent('resume_click', {
+      link_location: placement,
+      resume_action: link.hasAttribute('download') ? 'download' : 'open'
+    });
+  });
+
+  // Native details controls emit toggle when opened or closed.
+  // Only opens count; reopening counts as another open.
+  document.querySelectorAll('details.work-example').forEach((project) => {
+    project.addEventListener('toggle', () => {
+      if (!project.open) return;
+      const title = project.closest('article')?.querySelector('h3')
+        || project.querySelector('summary');
+      sendEvent('project_open', {
+        project_id: project.id,
+        project_title: title?.textContent.trim().slice(0, 100) || project.id
+      });
+    });
+  });
+})();
