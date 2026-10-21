@@ -20,8 +20,8 @@ Validate local links and anchors, JavaScript syntax, structured metadata, exampl
 ## Portfolio analytics
 
 GA4 web stream `G-6VSZ7TZW09` measures the portfolio without an automatic prompt.
-Collection runs only on `mickeysteurer.github.io`. A small, fixed bottom-right
-Privacy button opens preferences on request. Disable analytics stops all future
+Collection runs only on `mickeysteurer.github.io`. A small footer Privacy link
+opens `privacy.html`, where Analytics preferences opens the settings on request. Disable analytics stops all future
 collection, including cookie-free measurements. Previous choices are preserved.
 Global Privacy Control and Do Not Track suppress loading the Google tag entirely.
 `privacy.html` explains the data use. Local previews do not collect.
