@@ -165,11 +165,11 @@ h3{margin:0;font-size:31px;line-height:1.08;letter-spacing:-.04em}
 .contact-section{position:relative;isolation:isolate;padding:100px max(24px,calc((100% - 1180px)/2));color:#fff;background:linear-gradient(135deg,#0c1222 0%,#111b31 72%,#172546 100%);overflow:hidden}
 .contact-section:before{content:"";position:absolute;z-index:-1;right:-120px;top:-190px;width:580px;height:580px;border:1px solid rgba(132,154,255,.12);border-radius:50%;box-shadow:0 0 120px rgba(59,83,187,.12),0 0 0 85px rgba(104,129,240,.025)}
 .contact-section .eyebrow{color:#9daeff}
-.contact-section h2{max-width:940px;font-size:clamp(36px,4.5vw,56px)}
-.contact-copy{max-width:680px;margin:24px 0 30px;color:#b9c4d7;font-size:15px;line-height:1.7}
+.contact-section h2{max-width:760px;font-size:clamp(34px,4vw,48px);line-height:1.12}
+.contact-copy{max-width:680px;margin:20px 0 0;color:#b9c4d7;font-size:17px;line-height:1.65}
 .contact-email{display:inline-block;margin:-12px 0 28px;color:#fff;border-bottom:1px solid #61708a;font-size:14px;font-weight:700;transition:border-color .2s ease}
 .contact-email:hover{border-color:var(--cobalt-soft)}
-.contact-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.contact-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:28px}
 .contact-button{border-color:var(--cobalt-strong);background:var(--cobalt-strong);color:#fff}
 .contact-outline{border-color:#536078;color:#fff}
 .contact-outline:hover{border-color:#7c8ba5;background:rgba(255,255,255,.04)}
