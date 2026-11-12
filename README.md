@@ -6,8 +6,8 @@ Static HTML, CSS, and JavaScript. No build or package installation is required. 
 
 ## Content rules
 
-- Employment facts and claims follow master resume source pack v5.8, maintained separately from this public repository.
-- The four expandable projects describe user-confirmed workflows. Sales replies are human-written; deferred outreach is scheduled automatically. Tracked-budget updates are automated only after human confirmation.
+- Employment facts and claims follow master resume source pack v5.12.7, maintained separately from this public repository.
+- The four primary cases have shareable headings and short disclosures. Sales handles interested replies. If a prospect asks to reconnect without a timeframe, the workflow asks when and follows up six months later if the question goes unanswered. Tracked-budget updates require human confirmation.
 - Historical files in `examples/` remain available at their existing URLs but are not linked from the page. Any fabricated records displayed in future must carry an “Illustrative example” label.
 - Do not infer extraction technology, duplicate-matching keys, polling intervals, named distance formulas, or road-distance APIs. Unresolved details are recorded in the private source pack.
 - Preserve the public `Michael_Steurer_Resume.pdf` path when replacing the resume. Keep the file aligned with the approved current resume.
@@ -39,7 +39,7 @@ or purposes change. Do not describe denied storage as no data collection.
 - `resume_click` measures clicks on the navigation, hero, and contact resume links.
   `link_location` identifies placement; `resume_action` distinguishes open/download.
   A click is not proof of a completed download or PDF read.
-- `project_open` measures openings of all seven project details controls.
+- `project_open` measures openings of project details controls.
   `project_id` and `project_title` identify the project. Closing does not count;
   reopening counts again. Distinct-user/session metrics are limited without cookies.
 
