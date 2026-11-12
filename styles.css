@@ -338,10 +338,3 @@ footer{padding:28px max(24px,calc((100% - 1180px)/2));background:#080d18;color:#
 .analytics-settings{font:inherit;background:none;border:0;padding:0;min-height:24px;cursor:pointer}
 @media(max-width:680px){.analytics-consent{padding:14px}.privacy-page h1{font-size:32px}}
 
-
-/* Featured project */
-.case-study.case-featured{border-color:#b9c3ec}
-.featured-label{margin:0 0 9px;color:#243b8c;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.project-overview>p{margin:0}
-.project-overview>.featured-example{margin-top:14px;padding-left:14px;border-left:2px solid #b9c3ec}
-.featured-example strong{color:var(--ink)}

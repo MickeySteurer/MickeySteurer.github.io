@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Michael Steurer’s work in Salesforce campaigns, automated prospect follow-up, and WordPress publishing.">
+  <meta name="description" content="Michael Steurer's work in digital marketing, email campaigns, websites, and workflow automation.">
   <meta name="theme-color" content="#0b1020">
   <link rel="canonical" href="https://mickeysteurer.github.io/">
   <link rel="preload" href="michael-steurer-portrait.webp" as="image" type="image/webp">
   <meta property="og:title" content="Michael Steurer | Digital Marketing & Marketing Operations">
-  <meta property="og:description" content="Michael Steurer’s work in Salesforce campaigns, automated prospect follow-up, and WordPress publishing.">
+  <meta property="og:description" content="Email campaigns, websites, and practical workflow automation.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Michael Steurer">
   <meta property="og:url" content="https://mickeysteurer.github.io/">
@@ -18,24 +18,24 @@
   <meta property="og:image:alt" content="Michael Steurer, Digital Marketing and Marketing Operations">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Michael Steurer | Digital Marketing & Marketing Operations">
-  <meta name="twitter:description" content="Michael Steurer’s work in Salesforce campaigns, automated prospect follow-up, and WordPress publishing.">
+  <meta name="twitter:description" content="Email campaigns, websites, and practical workflow automation.">
   <meta name="twitter:image" content="https://mickeysteurer.github.io/michael-steurer-social-card.jpg">
   <title>Michael Steurer | Digital Marketing &amp; Marketing Operations</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261111-projects">
+  <link rel="stylesheet" href="styles.css?v=20261026-contact">
   <script src="script.js?v=20261020-privacy2" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "dateModified": "2026-11-11",
+    "dateModified": "2026-10-23",
     "mainEntity": {
       "@type": "Person",
       "name": "Michael Steurer",
       "url": "https://mickeysteurer.github.io/",
       "image": "https://mickeysteurer.github.io/michael-steurer-portrait.webp",
       "jobTitle": "Digital Marketing & Marketing Operations",
-      "description": "Michael Steurer’s work in Salesforce campaigns, automated prospect follow-up, and WordPress publishing.",
+      "description": "Digital marketing and marketing operations professional with experience in email campaigns, websites, SEO, reporting, and practical workflow automation.",
       "homeLocation": {
         "@type": "Place",
         "name": "West New York, New Jersey"
@@ -62,7 +62,7 @@
     <div class="hero-content">
       <p class="eyebrow hero-kicker">West New York, NJ</p>
       <h1 id="hero-title">I’m Michael Steurer.</h1>
-      <p class="hero-intro">At GRM / VisualVault, I ran 50+ Engagement Studio workflows in Salesforce Account Engagement, from audience setup and email testing through launch and follow-up. I also built automations for prospect replies and published WordPress updates.</p>
+      <p class="hero-intro">I work on email campaigns, website content, and the processes behind them. At GRM / VisualVault, I also built automations for prospect follow-up, invoice tracking, and file organization.</p>
       <p class="availability-line">Open to NYC hybrid and remote roles.</p>
       <div class="hero-actions">
         <a class="button button-primary" href="#work">View selected work <span aria-hidden="true">↓</span></a>
@@ -74,24 +74,20 @@
   </section>
 
   <section class="work-section" id="work" aria-labelledby="work-title">
-    <div class="section-heading" data-reveal><p class="eyebrow">Selected work</p><div><h2 id="work-title">Projects</h2><p class="work-note">Examples from my work at GRM / VisualVault, covering Salesforce campaigns, web publishing, and workflow automation.</p></div></div>
+    <div class="section-heading" data-reveal><p class="eyebrow">Selected work</p><div><h2 id="work-title">Projects</h2><p class="work-note">Examples from my work at GRM / VisualVault, covering campaign follow-up, website updates, and internal workflows.</p></div></div>
     <div class="case-list">
       <article class="case-study case-featured" data-reveal>
         <div class="case-index">01</div>
-        <div class="case-title"><p class="featured-label">Featured project</p><h3>Prospect replies and personalized follow-up</h3></div>
-        <div class="project-overview">
-          <p>“Try me again next quarter” needed to become more than a note in an inbox. I built a workflow that saved when and why a prospect wanted to reconnect in Salesforce Account Engagement and scheduled a personalized email through Engagement Studio.</p>
-          <p class="featured-example"><strong>Illustrative reply:</strong> “Check back later.” With no date to work from, the workflow asked when the prospect wanted to reconnect or when their contract ended. If they didn’t answer that question, it followed up six months later.</p>
-        </div>
+        <div class="case-title"><h3>Prospect replies and personalized follow-up</h3></div>
+        <p class="project-overview">“Try me again next quarter” needed to become more than a note in an inbox. I built a workflow that captured when and why a prospect wanted to reconnect, then used that context for personalized outreach at the right time.</p>
         <details class="work-example" id="follow-up-example">
           <summary>How replies were handled</summary>
           <div class="example-content reply-flow">
             <ol class="flow-intake" aria-label="Reply intake">
               <li><strong>Gmail reply</strong><span>Received by a sales alias</span></li>
               <li><strong>Zapier</strong><span>Passes the reply for classification</span></li>
-              <li><strong>Classify the reply</strong><span>Rules and OpenAI API help identify what to do next</span></li>
+              <li><strong>OpenAI API</strong><span>Identifies response intent</span></li>
             </ol>
-            <p class="workflow-note">Straightforward replies could use simpler rules. Unclear replies could get another pass or go to manual review.</p>
             <h4 class="flow-label">Selected response paths</h4>
             <div class="response-paths">
               <div><h4>Interested</h4><p>Notify Sales so a salesperson can respond.</p></div>
@@ -99,9 +95,9 @@
               <div><h4>Do not contact</h4><p>Update contact preferences and suppression records to stop further outreach.</p></div>
               <div class="deferred-path"><h4>Deferred interest</h4><p>Turn a request to reconnect later into a scheduled, personalized follow-up.</p>
                 <ol class="deferred-steps" aria-label="Deferred-interest follow-up">
-                  <li><strong>Find the timing or ask for it</strong><p>The workflow extracted any timing and reason the prospect supplied. If timing was missing, it asked when to reconnect or when the contract ended. If that question went unanswered, it sent another follow-up six months later.</p></li>
-                  <li><strong>Save the context</strong><p>Custom fields in Salesforce Account Engagement stored the timing and reason when supplied.</p></li>
-                  <li><strong>Schedule outreach for the requested time</strong><p>When the timing was known, the contact entered the appropriate Engagement Studio workflow. The email referenced their earlier request.</p></li>
+                  <li><strong>Extract the timing and reason</strong><p>OpenAI’s API identified when the prospect wanted to hear from us and the context behind the request.</p></li>
+                  <li><strong>Save the context</strong><p>Custom fields in Salesforce Account Engagement stored the requested timing and reason.</p></li>
+                  <li><strong>Schedule the follow-up</strong><p>The contact entered the appropriate Engagement Studio workflow. The email referenced their earlier request.</p></li>
                   <li class="sales-handoff"><strong>Route interested replies</strong><p>A salesperson handled the response and continued the conversation.</p></li>
                 </ol>
               </div>
@@ -112,27 +108,10 @@
       </article>
 
 
-      <article class="case-study case-grid" data-reveal>
+      <article class="case-study case-featured" data-reveal>
         <div class="case-index">02</div>
-        <div class="case-title"><h3>Salesforce audience and campaign execution</h3></div>
-        <p class="project-overview">I researched and screened prospects, reviewed targeted audiences with Sales, and connected Salesforce campaign records to Account Engagement. I built the emails, sent proofs before launch, and reviewed campaign results with Sales.</p>
-        <details class="work-example" id="campaign-example">
-          <summary>See how I ran targeted campaigns</summary>
-          <div class="example-content">
-            <ol class="workflow-steps">
-              <li><strong>Build the audience</strong><p>I used Salesforce reports and ZoomInfo to research prospects, checked prior contact and opt-outs, and reviewed the audience with the Sales representative.</p></li>
-              <li><strong>Prepare and test emails</strong><p>I built HTML emails and maintained their plain-text versions in Account Engagement, then sent proofs to check the content and rendering before launch.</p></li>
-              <li><strong>Review results with Sales</strong><p>I built Salesforce reports on opens, link clicks, and opt-outs, and used discussions with Sales to inform recommendations for later campaigns.</p></li>
-            </ol>
-          </div>
-        </details>
-        <div class="case-tags"><span>Salesforce CRM</span><span>Salesforce Account Engagement (Pardot)</span><span>ZoomInfo</span></div>
-      </article>
-
-      <article class="case-study case-grid" data-reveal>
-        <div class="case-index">03</div>
         <div class="case-title"><h3>Website content and SEO</h3></div>
-        <p class="project-overview">I built WordPress and Elementor pages from designer mockups approved by management, adjusted layouts in HTML and CSS, and checked changes after publishing. For the GRM and VisualVault blogs, I used Search Console to find gaps in coverage and improved article structure, internal links, author credits, and schema.</p>
+        <p class="project-overview">I updated website and landing-page copy in WordPress and Elementor, using Search Console queries and page performance to inform content and SEO priorities. I took changes through staging, publishing, and checks on the live site.</p>
         <details class="work-example" id="website-example">
           <summary>See how I handled website updates</summary>
           <div class="example-content">
@@ -148,7 +127,7 @@
       </article>
 
       <article class="case-study case-grid" data-reveal>
-        <div class="case-index">04</div>
+        <div class="case-index">03</div>
         <div class="case-title"><h3>Invoice intake and budget tracking</h3></div>
         <p class="project-overview">I built a workflow that extracted invoice details into Google Sheets, removed duplicates, and updated a working budget view. Changes reached the tracked budget only after I reviewed and confirmed them.</p>
         <details class="work-example" id="invoice-example">
@@ -168,7 +147,7 @@
       </article>
 
       <article class="case-study case-grid" data-reveal>
-        <div class="case-index">05</div>
+        <div class="case-index">04</div>
         <div class="case-title"><h3>Territory-based sales assignment</h3></div>
         <p class="project-overview">I built a workflow that matched prospect locations with company facilities and assigned the corresponding sales contact in Account Engagement. Distant prospects and ambiguous matches were flagged for review.</p>
         <details class="work-example" id="routing-example">
@@ -194,6 +173,10 @@
         <summary>Creative file organization</summary>
         <div class="example-content"><p class="workflow-intro">Working with our designer, I built a Google Apps Script workflow that used project correspondence and existing naming conventions to rename and organize files in Google Drive. Email wording, dates, and project types provided context for identifying each asset.</p><div class="case-tags"><span>Google Drive</span><span>Gmail</span><span>Google Apps Script</span></div></div>
       </details>
+      <details class="work-example" id="campaign-example">
+        <summary>Campaign tracking and reporting</summary>
+        <div class="example-content"><p class="workflow-intro">I tracked campaign work in Asana, worked with Salesforce reports and exports, and helped configure emailed summaries of campaign performance.</p><div class="case-tags"><span>Asana</span><span>Salesforce</span></div></div>
+      </details>
       <details class="work-example" id="acquisition-example">
         <summary>Acquisition prospecting</summary>
         <div class="example-content"><p class="workflow-intro">When the team wanted to identify potential acquisition targets in Florida, I built a local Python script to search the web for smaller storage businesses. I enriched the resulting contact list through ZoomInfo and created a Salesforce outreach campaign.</p><div class="case-tags"><span>Python</span><span>ZoomInfo</span><span>Salesforce</span></div></div>
@@ -210,7 +193,7 @@
       <article class="timeline-row" id="campaign-work" data-reveal>
         <div class="timeline-meta"><span>Mar 2025 - Jun 2026</span><span>Jersey City, NJ | Hybrid</span></div>
         <div class="timeline-main"><h3>Marketing Coordinator <span>(Marketing Operations)</span></h3><p class="company">GRM Information Management Services / VisualVault</p><ul>
-          <li>Built HTML emails and maintained their plain-text versions in Salesforce Account Engagement. Sent proofs and checked links, forms, and routing before launch.</li>
+          <li>Executed 50+ Engagement Studio workflows from audience setup and email builds through QA, launch, routing, response handling, and follow-up.</li>
           <li>Wrote and edited copy for email, web pages, blogs, social posts, and marketing materials.</li>
           <li>Managed WordPress and Elementor updates through staging, SEO review, publishing, and live checks.</li>
           <li>Built practical automations across response handling, structured data extraction, file operations, and routing.</li>
@@ -219,7 +202,7 @@
       </article>
       <article class="timeline-row" data-reveal>
         <div class="timeline-meta"><span>May 2024 - Feb 2025</span><span>Remote</span></div>
-        <div class="timeline-main"><h3>Digital Marketer</h3><p class="company">Travel Hotline</p><ul><li>Produced approximately five short social videos per week using Adobe Premiere Pro and Adobe Express.</li><li>Researched market trends to inform campaign planning and trained four teammates on content production tools and quality standards.</li></ul></div>
+        <div class="timeline-main"><h3>Digital Marketer</h3><p class="company">Travel Hotline</p><ul><li>Created digital assets for social media, email newsletters, blog content, and other digital channels.</li><li>Produced approximately five social videos per week using Adobe Premiere Pro and Adobe Express.</li></ul></div>
       </article>
     </div>
   </section>

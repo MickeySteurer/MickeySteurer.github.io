@@ -6,8 +6,8 @@ Static HTML, CSS, and JavaScript. No build or package installation is required. 
 
 ## Content rules
 
-- Employment facts and claims follow the master resume source pack, maintained separately from this public repository.
-- The five project cards and two supporting examples describe user-confirmed work. Sales handles interested replies. When a prospect requests later contact without giving a date, the workflow asks when to reconnect and follows up after six months if the prospect does not reply. Tracked-budget updates are automated only after human confirmation.
+- Employment facts and claims follow master resume source pack v5.8, maintained separately from this public repository.
+- The four expandable projects describe user-confirmed workflows. Sales replies are human-written; deferred outreach is scheduled automatically. Tracked-budget updates are automated only after human confirmation.
 - Historical files in `examples/` remain available at their existing URLs but are not linked from the page. Any fabricated records displayed in future must carry an “Illustrative example” label.
 - Do not infer extraction technology, duplicate-matching keys, polling intervals, named distance formulas, or road-distance APIs. Unresolved details are recorded in the private source pack.
 - Preserve the public `Michael_Steurer_Resume.pdf` path when replacing the resume. Keep the file aligned with the approved current resume.
