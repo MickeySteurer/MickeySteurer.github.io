@@ -40,6 +40,14 @@ try {
       assert(checks.download);
       assert(checks.h1.includes('Michael Steurer'));
       await page.screenshot({path:shots+'/portfolio-'+width+'.png',fullPage:true});
+      if(width===390 || width===1440){
+        const jpeg=await page.screenshot({type:'jpeg',quality:40,fullPage:false});
+        console.log('DRAFT_PREVIEW_'+width+'_BEGIN'+jpeg.toString('base64')+'DRAFT_PREVIEW_'+width+'_END');
+      }
+      if(width===1440){
+        const jpeg=await page.locator('#salesforce-campaigns').screenshot({type:'jpeg',quality:40});
+        console.log('DRAFT_CASE_1440_BEGIN'+jpeg.toString('base64')+'DRAFT_CASE_1440_END');
+      }
       await page.addScriptTag({path:axePath});
       const axe=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}}));
       const serious=axe.violations.filter(v=>['critical','serious'].includes(v.impact));
@@ -62,6 +70,14 @@ try {
       await page.goto('https://mickeysteurer.github.io/',{waitUntil:'domcontentloaded',timeout:18000});
       await page.waitForTimeout(300);
       await page.screenshot({path:shots+'/published-main-'+width+'.png',fullPage:true});
+      if(width===390 || width===1440){
+        const jpeg=await page.screenshot({type:'jpeg',quality:40,fullPage:false});
+        console.log('MAIN_PREVIEW_'+width+'_BEGIN'+jpeg.toString('base64')+'MAIN_PREVIEW_'+width+'_END');
+      }
+      if(width===1440){
+        const jpeg=await page.locator('.case-study').first().screenshot({type:'jpeg',quality:40});
+        console.log('MAIN_CASE_1440_BEGIN'+jpeg.toString('base64')+'MAIN_CASE_1440_END');
+      }
       const baseline=await page.evaluate(()=>({
         scrollWidth:document.documentElement.scrollWidth,
         viewport:window.innerWidth,
