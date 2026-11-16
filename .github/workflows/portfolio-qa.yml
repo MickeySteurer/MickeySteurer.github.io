@@ -22,20 +22,23 @@ jobs:
         run: |
           node --check script.js
           node --test tests/site.test.mjs
-      - name: Inspect public resume PDF and PR 7 candidate
+      - name: Render and inspect public and draft resumes
         run: |
-          if command -v pdfinfo >/dev/null && command -v pdftotext >/dev/null; then
-            echo 'CURRENT PUBLIC RESUME'
-            pdfinfo Michael_Steurer_Resume.pdf | grep -E 'Pages:|Page size:'
-            pdftotext -layout Michael_Steurer_Resume.pdf - | head -105
-            git fetch --depth=1 origin portfolio-hiring-review
-            git show FETCH_HEAD:Michael_Steurer_Resume.pdf > /tmp/draft_resume.pdf
-            echo 'PR 7 DRAFT RESUME'
-            pdfinfo /tmp/draft_resume.pdf | grep -E 'Pages:|Page size:'
-            pdftotext -layout /tmp/draft_resume.pdf - | head -105
-          else
-            echo 'Poppler text extraction not installed; PDF review remains outstanding.'
-          fi
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y poppler-utils >/dev/null
+          mkdir -p browser-shots
+          echo 'CURRENT PUBLIC RESUME'
+          pdfinfo Michael_Steurer_Resume.pdf | grep -E 'Pages:|Page size:'
+          pdftotext -layout Michael_Steurer_Resume.pdf - | head -110
+          pdftoppm -f 1 -l 1 -scale-to 1050 -jpeg -jpegopt quality=50 Michael_Steurer_Resume.pdf browser-shots/resume-main >/dev/null 2>&1
+          echo "RESUME_MAIN_BEGIN$(base64 -w0 browser-shots/resume-main-1.jpg)RESUME_MAIN_END"
+          git fetch --depth=1 origin portfolio-hiring-review
+          git show FETCH_HEAD:Michael_Steurer_Resume.pdf > /tmp/draft_resume.pdf
+          echo 'PR 7 DRAFT RESUME'
+          pdfinfo /tmp/draft_resume.pdf | grep -E 'Pages:|Page size:'
+          pdftotext -layout /tmp/draft_resume.pdf - | head -110
+          pdftoppm -f 1 -l 1 -scale-to 1050 -jpeg -jpegopt quality=50 /tmp/draft_resume.pdf browser-shots/resume-pr7 >/dev/null 2>&1
+          echo "RESUME_PR7_BEGIN$(base64 -w0 browser-shots/resume-pr7-1.jpg)RESUME_PR7_END"
       - name: Install browser testing tools
         run: |
           npm install --no-save playwright@1.56.1 axe-core@4.10.3
