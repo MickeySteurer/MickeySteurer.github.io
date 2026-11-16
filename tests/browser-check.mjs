@@ -11,7 +11,7 @@ const widths=[320,390,768,1024,1440];
 const shots='browser-shots';
 mkdirSync(shots,{recursive:true});
 const browser=await chromium.launch({headless:true});
-let failures=[],results=[];
+let failures=[],results=[],baselineResults=[],baselineWarnings=[];
 try {
   for(const width of widths){
     const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
@@ -54,7 +54,27 @@ try {
     }catch(error){failures.push({width,type:'browser',error:String(error)});}
     finally{await page.close();}
   }
+  // Capture current published main as a visual comparison; failures here should not
+  // obscure whether the proposed branch itself passes checks.
+  for (const width of widths) {
+    const page = await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
+    try {
+      await page.goto('https://mickeysteurer.github.io/',{waitUntil:'domcontentloaded',timeout:18000});
+      await page.waitForTimeout(300);
+      await page.screenshot({path:shots+'/published-main-'+width+'.png',fullPage:true});
+      const baseline=await page.evaluate(()=>({
+        scrollWidth:document.documentElement.scrollWidth,
+        viewport:window.innerWidth,
+        pageHeight:document.documentElement.scrollHeight,
+        caseCount:document.querySelectorAll('.case-study').length,
+        detailsCount:document.querySelectorAll('details.work-example').length,
+        title:document.title
+      }));
+      baselineResults.push({width,...baseline});
+    }catch(error){baselineWarnings.push({width,error:String(error)});}
+    finally{await page.close();}
+  }
 }finally{await browser.close();}
-writeFileSync(shots+'/qa-results.json',JSON.stringify({results,failures},null,2));
+writeFileSync(shots+'/qa-results.json',JSON.stringify({results,failures,baselineResults,baselineWarnings},null,2));
 console.log(JSON.stringify({results,failures},null,2));
 if(failures.length)process.exitCode=1;
