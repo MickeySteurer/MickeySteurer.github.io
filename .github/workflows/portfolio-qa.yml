@@ -22,6 +22,20 @@ jobs:
         run: |
           node --check script.js
           node --test tests/site.test.mjs
+      - name: Inspect public resume PDF and PR 7 candidate
+        run: |
+          if command -v pdfinfo >/dev/null && command -v pdftotext >/dev/null; then
+            echo 'CURRENT PUBLIC RESUME'
+            pdfinfo Michael_Steurer_Resume.pdf | grep -E 'Pages:|Page size:'
+            pdftotext -layout Michael_Steurer_Resume.pdf - | head -105
+            git fetch --depth=1 origin portfolio-hiring-review
+            git show FETCH_HEAD:Michael_Steurer_Resume.pdf > /tmp/draft_resume.pdf
+            echo 'PR 7 DRAFT RESUME'
+            pdfinfo /tmp/draft_resume.pdf | grep -E 'Pages:|Page size:'
+            pdftotext -layout /tmp/draft_resume.pdf - | head -105
+          else
+            echo 'Poppler text extraction not installed; PDF review remains outstanding.'
+          fi
       - name: Install browser testing tools
         run: |
           npm install --no-save playwright@1.56.1 axe-core@4.10.3
