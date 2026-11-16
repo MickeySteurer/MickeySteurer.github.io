@@ -1,4 +1,4 @@
-# Portfolio Improvement Plan — 2026-11-16
+# Portfolio Improvement Plan — 2026-11-15
 Status: **Draft PR only — no approval to publish.**
 Public baseline: `main`. Existing unmerged PR #7 is a reference, not an approved change.
 
@@ -21,7 +21,7 @@ Do not commit the private career pack to the public repository.
 - Restored event logistics and 500+ event leads, and gave Travel Hotline video/training their correct attribution.
 - Removed a specific six-month no-reply fallback from the published description because it was not established in the maintained claim register.
 - Added confirmed tools relevant to operations roles (Jira, Microsoft Excel, PowerPoint).
-- Kept existing routes, privacy preferences, existing analytics events and résumé asset unchanged.
+- Kept existing routes, privacy preferences, and analytics events unchanged. Replaced the outdated public résumé PDF with the visually reviewed one-page PR #7 version (same existing download URL).
 
 ## Acceptance checks
 - No incorrect Travel Hotline blog or website attribution.
@@ -31,12 +31,14 @@ Do not commit the private career pack to the public repository.
 - All navigation and resume URLs continue to work.
 - Browser compare at 320, 390, 768, 1024 and 1440 CSS px; check zoom and expanded details.
 - Keyboard, reduced-motion and manual WCAG 2.2 AA checks.
-- Visual and textual public résumé review (existing binary asset not changed).
+- Visual and textual public résumé review; one-page PR #7 version copied by matching Git blob SHA.
 - Approve before merging.
 
-## Remaining validation (must not be represented as completed)
-- Chromium CI tested 320, 390, 768, 1024, and 1440 CSS px with no horizontal overflow and no automated WCAG A/AA findings; published-versus-draft screenshots were generated. A separate manual browser/keyboard/zoom pass and human comprehension check are still required.
-- Public résumé PDF visual inspection and consistency review.
+## Verified results and remaining validation
+- GitHub Actions Chromium CI passed at 320, 390, 768, 1024, and 1440 CSS px: no horizontal overflow, disclosures opened successfully, and no automated WCAG A/AA findings. Published-versus-draft desktop and mobile screenshots were generated and visually compared. Automated tests are not comprehensive accessibility certification.
+- Both one-page résumé versions were rendered and their text inspected; the chosen draft corrects the Travel Hotline blog misattribution and restores confirmed training and creative tools. The new branch contains the unchanged binary candidate (Git blob SHA `5a6e2646e5f2b94f3241a6082ca73aa2c25d3e2a`).
+- A manual keyboard, text zoom, browser compatibility and employer-comprehension check is still recommended before merging.
+- Manual check of PDF hyperlink destinations in a standard viewer, and any future updates to the general public résumé.
 - Employer-oriented comprehension testing using a few concrete tasks.
 - Optional work samples only if they add authentic evidence; no synthetic screenshots presented as original employer assets.
 
