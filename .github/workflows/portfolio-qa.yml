@@ -5,6 +5,7 @@ on:
       - 'index.html'
       - 'styles.css'
       - 'script.js'
+      - 'Michael_Steurer_Resume.pdf'
       - 'tests/**'
       - '.github/workflows/portfolio-qa.yml'
   workflow_dispatch:
@@ -22,23 +23,20 @@ jobs:
         run: |
           node --check script.js
           node --test tests/site.test.mjs
-      - name: Render and inspect public and draft resumes
+      - name: Verify published resume candidate
         run: |
           sudo apt-get update -qq >/dev/null
           sudo apt-get install -y poppler-utils >/dev/null
           mkdir -p browser-shots
-          echo 'CURRENT PUBLIC RESUME'
-          pdfinfo Michael_Steurer_Resume.pdf | grep -E 'Pages:|Page size:'
-          pdftotext -layout Michael_Steurer_Resume.pdf - | head -110
-          pdftoppm -f 1 -l 1 -scale-to 1050 -jpeg -jpegopt quality=50 Michael_Steurer_Resume.pdf browser-shots/resume-main >/dev/null 2>&1
-          echo "RESUME_MAIN_BEGIN$(base64 -w0 browser-shots/resume-main-1.jpg)RESUME_MAIN_END"
-          git fetch --depth=1 origin portfolio-hiring-review
-          git show FETCH_HEAD:Michael_Steurer_Resume.pdf > /tmp/draft_resume.pdf
-          echo 'PR 7 DRAFT RESUME'
-          pdfinfo /tmp/draft_resume.pdf | grep -E 'Pages:|Page size:'
-          pdftotext -layout /tmp/draft_resume.pdf - | head -110
-          pdftoppm -f 1 -l 1 -scale-to 1050 -jpeg -jpegopt quality=50 /tmp/draft_resume.pdf browser-shots/resume-pr7 >/dev/null 2>&1
-          echo "RESUME_PR7_BEGIN$(base64 -w0 browser-shots/resume-pr7-1.jpg)RESUME_PR7_END"
+          test "$(pdfinfo Michael_Steurer_Resume.pdf | awk '/Pages:/ {print $2}')" = "1"
+          pdftotext -layout Michael_Steurer_Resume.pdf /tmp/resume.txt
+          awk '/Travel Hotline/ {capture=1;next} /SKILLS/ {capture=0} capture' /tmp/resume.txt > /tmp/travel_hotline.txt
+          if grep -Eiq 'blog|WordPress|Elementor|website' /tmp/travel_hotline.txt; then
+            echo 'Incorrect Travel Hotline attribution found in public resume'
+            exit 1
+          fi
+          pdftoppm -f 1 -l 1 -scale-to 1050 -jpeg -jpegopt quality=65 Michael_Steurer_Resume.pdf browser-shots/resume-current >/dev/null 2>&1
+          echo 'Resume verified: one page and no prohibited Travel Hotline attribution.'
       - name: Install browser testing tools
         run: |
           npm install --no-save playwright@1.56.1 axe-core@4.10.3
