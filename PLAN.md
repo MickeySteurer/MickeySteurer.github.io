@@ -35,7 +35,7 @@ Do not commit the private career pack to the public repository.
 - Approve before merging.
 
 ## Remaining validation (must not be represented as completed)
-- Actual browser screenshots and responsive/a11y testing on the full live site. The environment used for this draft has repository access but cannot download website assets into the browser test container.
+- Chromium CI tested 320, 390, 768, 1024, and 1440 CSS px with no horizontal overflow and no automated WCAG A/AA findings; published-versus-draft screenshots were generated. A separate manual browser/keyboard/zoom pass and human comprehension check are still required.
 - Public résumé PDF visual inspection and consistency review.
 - Employer-oriented comprehension testing using a few concrete tasks.
 - Optional work samples only if they add authentic evidence; no synthetic screenshots presented as original employer assets.
