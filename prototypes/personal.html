@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta name="description" content="Unpublished design prototype for Michael Steurer's portfolio."><link rel="stylesheet" href="common.css"><link rel="stylesheet" href="personal.css"><title>03 — Personal brand | Michael Steurer portfolio prototype</title></head><body class="personal"><a class="skip" href="#main">Skip to main content</a><header class="site-header"><a class="wordmark" href="#top">Michael Steurer</a><nav aria-label="Primary"><a href="#work">Work</a><a href="#experience">Experience</a><a href="../Michael_Steurer_Resume.pdf">Résumé</a><a href="#contact">Contact</a></nav></header><main id="main"><section class="hero" id="top" aria-labelledby="hero-title"><div class="hero-grid"><div class="hero-copy"><p class="hello">Hi, I'm Michael.</p><h1 id="hero-title">I work in<br>marketing <em>&amp;</em><br>operations.</h1><p class="intro">At GRM / VisualVault, I executed 50+ Engagement Studio workflows, from audience setup and email QA through launch and Sales follow-up. I also maintained CRM records, published WordPress content, and built practical automations.</p><div class="actions"><a class="main-link" href="#work">Selected work <span aria-hidden="true">↓</span></a><a href="../Michael_Steurer_Resume.pdf" download>Résumé PDF <span aria-hidden="true">↗</span></a><a href="https://www.linkedin.com/in/mickey-steurer" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div></div><div class="portrait-composition"><div class="photo-shape" aria-hidden="true"></div><figure class="hero-photo"><img src="../michael-steurer-portrait.webp" width="640" height="800" alt="Michael Steurer in a dark suit and white shirt" fetchpriority="high"></figure><div class="portrait-caption"><strong>Michael Steurer</strong><span>West New York, NJ</span></div></div></div><p class="availability">West New York, NJ · Open to NYC hybrid and remote roles.</p><div class="fact-strip" aria-label="Professional experience at GRM / VisualVault"><div><strong>50+</strong><span>Engagement Studio workflows</span></div><div><strong>7</strong><span>trade shows supported</span></div><div><strong>500+</strong><span>in-person event leads across the program</span></div></div></section><section class="work-section" id="work" aria-labelledby="work-title">
+    <header class="section-heading"><div><p class="section-kicker">GRM / VisualVault</p><h2 id="work-title">Selected work</h2></div><p>Campaign execution, web publishing, automation and operational coordination.</p></header>
+    <div class="case-list case-list-revised personal-list">
+      <article class="case-study portfolio-case" id="salesforce-campaigns" aria-labelledby="salesforce-campaigns-title">
+        <div class="case-heading"><span class="case-index" aria-hidden="true">01</span><div><p class="project-type">Marketing operations · CRM</p><h3 id="salesforce-campaigns-title">Campaign execution from audience to follow-up</h3></div></div>
+        <div class="case-copy">
+          <p>I researched and checked targeted audiences using Salesforce reports and ZoomInfo, reviewed lists with Sales, and built HTML-format emails and plain-text versions in Account Engagement. I sent proofs and checked links, forms, opt-outs, and routing as relevant before launch.</p>
+          <p>After launch, I used Salesforce reporting on opens, clicks, opt-outs, and total contract value to review results and discuss subsequent targeting with Sales. I tracked campaign work in Asana.</p>
+        </div>
+        <div class="campaign-strip" aria-label="Campaign activities"><span>Research</span><span>Build &amp; QA</span><span>Launch</span><span>Report &amp; follow up</span></div><details class="work-example" id="campaign-example">
+          <summary>Specific example: a healthcare audience coverage gap</summary>
+          <div class="example-content case-copy">
+            <p>Our existing prospect source did not adequately cover a specialized healthcare audience. My manager and I jointly recommended Definitive Healthcare; I then used its lists to build and execute campaigns in Salesforce Account Engagement.</p>
+            <p>That gave the team a new source for a specialized audience and let me implement the agreed approach in live campaigns.</p>
+          </div>
+        </details>
+        <div class="case-tags" aria-label="Tools used"><span>Salesforce CRM</span><span>Account Engagement (Pardot)</span><span>Engagement Studio</span><span>ZoomInfo</span><span>Asana</span></div>
+      </article>
+      <article class="case-study portfolio-case" id="ai-reply-workflow" aria-labelledby="ai-reply-title">
+        <div class="case-heading"><span class="case-index" aria-hidden="true">02</span><div><p class="project-type">AI-assisted marketing operations</p><h3 id="ai-reply-title">Prospect reply routing and deferred follow-up</h3></div></div>
+        <div class="case-copy">
+          <p>I built a workflow that interpreted campaign replies and routed them appropriately: notify Sales of positive interest, stop unsuitable follow-up, honor opt-out requests, or retain a prospect's requested timing and reason for later contact.</p>
+          <p>It connected Gmail, Zapier, OpenAI API logic, Salesforce Account Engagement fields, and Engagement Studio follow-up. Ambiguous cases could be reviewed rather than forced into an automated decision.</p>
+        </div>
+        <p class="example-caption">Illustrative reply · Not an actual prospect message</p>
+        <div class="reply-example-inline"><span>“Please contact me again in three months.”</span><span>Record the requested timing and context, then enroll an eligible contact in the appropriate follow-up workflow.</span></div>
+        <details class="work-example" id="follow-up-example">
+          <summary>See the reply paths and Sales handoff</summary>
+          <div class="example-content reply-flow">
+            <ol class="flow-intake" aria-label="Reply intake">
+              <li><strong>Gmail reply</strong><span>Received by a Sales alias</span></li>
+              <li><strong>Zapier</strong><span>Processes the response</span></li>
+              <li><strong>Rules / OpenAI API</strong><span>Classifies reply intent; unclear cases may require review</span></li>
+            </ol>
+            <h4 class="flow-label">Response paths</h4>
+            <div class="response-paths">
+              <div><h4>Interested</h4><p>Notify Sales so a salesperson can respond.</p></div>
+              <div><h4>Not interested</h4><p>Stop further emails in the current campaign.</p></div>
+              <div><h4>Do not contact</h4><p>Update preferences and suppression records to stop outreach.</p></div>
+              <div class="deferred-path"><h4>Deferred interest</h4><p>Save the time and reason supplied by the prospect and connect the contact to the appropriate personalized follow-up.</p>
+                <ol class="deferred-steps" aria-label="Deferred-interest follow-up">
+                  <li><strong>Identify timing and context</strong><p>Extract the requested follow-up time and the reason, when provided.</p></li>
+                  <li><strong>Save relevant fields</strong><p>Use custom Account Engagement fields to store timing and context.</p></li>
+                  <li><strong>Enroll for follow-up</strong><p>Place eligible contacts into the appropriate dynamic list and Engagement Studio workflow.</p></li>
+                  <li class="sales-handoff"><strong>Hand interested replies to Sales</strong><p>A salesperson handles the conversation.</p></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </details>
+        <div class="case-tags" aria-label="Tools used"><span>Gmail</span><span>Zapier</span><span>OpenAI API</span><span>Salesforce Account Engagement</span><span>Engagement Studio</span></div>
+      </article>
+      <article class="case-study portfolio-case" id="web-publishing" aria-labelledby="web-publishing-title">
+        <div class="case-heading"><span class="case-index" aria-hidden="true">03</span><div><p class="project-type">Web · SEO · content</p><h3 id="web-publishing-title">Website publishing and search-informed content</h3></div></div>
+        <div class="case-copy">
+          <p>I updated WordPress and Elementor pages, including work based on approved designer mockups, and made HTML/CSS adjustments. I checked page content, links, and forms through staging and live publishing.</p>
+          <p>I used Google Search Console to review queries and page performance, wrote blog and campaign copy, and improved article structures with headings, internal links, author credits, and relevant structured data. I also researched AI-search visibility and GEO.</p>
+        </div>
+        <details class="work-example" id="website-example">
+          <summary>How I approached web publishing and SEO</summary>
+          <div class="example-content"><ol class="workflow-steps">
+            <li><strong>Research content needs</strong><p>Review Search Console clicks, impressions, queries, and page trends alongside business topics.</p></li>
+            <li><strong>Revise copy and page elements</strong><p>Update content, headings, descriptions, internal links, or page layout as appropriate.</p></li>
+            <li><strong>Stage and publish</strong><p>Make WordPress and Elementor changes and check the page before release.</p></li>
+            <li><strong>Check the live result</strong><p>Review the published page, including links and forms where relevant.</p></li>
+          </ol></div>
+        </details>
+        <div class="case-tags" aria-label="Tools used"><span>WordPress</span><span>Elementor</span><span>HTML</span><span>CSS</span><span>Google Search Console</span></div>
+      </article>
+      <article class="case-study portfolio-case" id="operations-training" aria-labelledby="operations-training-title">
+        <div class="case-heading"><span class="case-index" aria-hidden="true">04</span><div><p class="project-type">Operations · documentation</p><h3 id="operations-training-title">Invoice controls and teammate training</h3></div></div>
+        <div class="case-copy">
+          <p>I built a Google Apps Script process that extracted invoice details into Google Sheets, removed duplicates, organized files, and updated a temporary budget view. I reviewed the entries before confirming changes to the tracked marketing budget.</p>
+          <p>I also prepared instructions, helped arrange tool access, and trained two GRM coworkers on recurring marketing workflows such as Engagement Studio, ZoomInfo lists, and invoice processing.</p>
+        </div>
+        <div class="approval-strip"><span>Invoice intake → Temporary budget view</span><strong>Human review → Tracked budget</strong></div><details class="work-example" id="invoice-example">
+          <summary>How invoice review protected the tracked budget</summary>
+          <div class="example-content"><ol class="workflow-steps">
+            <li><strong>Collect details</strong><p>Capture fields from invoices in Google Drive and create a structured sheet record.</p></li>
+            <li><strong>Organize and deduplicate</strong><p>Remove duplicate entries and files, then organize processed documents.</p></li>
+            <li><strong>Prepare a working view</strong><p>Feed a temporary budget view for review.</p></li>
+            <li class="human-step"><strong>Review and confirm</strong><p>I check the entries before approving updates to the tracked budget.</p></li>
+            <li><strong>Update tracking</strong><p>After confirmation, the workflow updates the tracked budget. I also tracked payment status through email.</p></li>
+          </ol></div>
+        </details>
+        <div class="case-tags" aria-label="Tools used"><span>Google Apps Script</span><span>Google Drive</span><span>Google Sheets</span><span>Engagement Studio</span><span>ZoomInfo</span></div>
+      </article>
+    </div>
+    <div class="supporting-projects" id="other-projects">
+      <h3>Additional work</h3>
+      <p class="supporting-intro">Other examples of research, event coordination, and process improvement.</p>
+      <div class="supporting-project-grid">
+        <details class="work-example" id="events-example"><summary>Trade shows and event lead follow-up</summary><div class="example-content"><p>Supported seven trade shows with scheduling, vendors, shipping, booth materials, lead retrieval, Salesforce entry, Sales handoffs, and post-event campaigns. Across the event program, I helped process 500+ in-person leads.</p></div></details>
+        <details class="work-example" id="acquisition-example"><summary>Prospect research with Python</summary><div class="example-content"><p>Used a ZoomInfo list and a local Python script to research Florida storage businesses. I wrote outreach copy and built an Account Engagement campaign, launched after my manager approved it. One CEO responded about possibly selling his company.</p></div></details>
+        <details class="work-example" id="routing-example"><summary>Territory-based sales assignment</summary><div class="example-content"><p>Built a Google Apps Script workflow that compared prospect locations with company facilities, assigned a relevant Sales alias in Account Engagement, and flagged distant or ambiguous matches for review.</p></div></details>
+        <details class="work-example" id="creative-example"><summary>Creative asset organization</summary><div class="example-content"><p>Working with the designer, built a Drive file-renaming and organization workflow using project emails and established naming conventions to identify assets.</p></div></details>
+        <details class="work-example" id="ai-tools-example"><summary>AI-assisted copy and task intake</summary><div class="example-content"><p>Built AI-assisted workflows to help generate marketing copy and campaign ideas. Separately, used AI to turn emails into task suggestions, reviewing the resulting tasks before using them.</p></div></details>
+      </div>
+    </div>
+  </section><section class="experience-section" id="experience" aria-labelledby="experience-title">
+    <div class="plain-heading"><h2 id="experience-title">Experience</h2></div>
+    <div class="timeline">
+      <article class="timeline-row" id="campaign-work">
+        <div class="timeline-meta"><span>Mar 2025 – Jun 2026</span><span>Jersey City, NJ | Hybrid</span></div>
+        <div class="timeline-main"><h3>Marketing Coordinator <span>(Marketing Operations)</span></h3><p class="company">GRM Information Management Services / VisualVault</p><ul>
+          <li>Executed 50+ Engagement Studio workflows in Salesforce Account Engagement, spanning audience setup, email creation and proofing, QA, launch, monitoring, and follow-up.</li>
+          <li>Maintained Salesforce records, campaign membership, lead sources, opt-outs, routing, and reporting inputs; coordinated targeting and follow-up with Sales.</li>
+          <li>Wrote and edited email, blog, social, and web content; reviewed marketing assets with the designer before leadership review.</li>
+          <li>Published WordPress and Elementor pages, handling content and SEO updates, HTML/CSS edits, and live-page checks.</li>
+          <li>Supported seven trade shows and workflows for 500+ in-person leads, coordinating materials, logistics, CRM entry, and Sales follow-up.</li>
+          <li>Built automations for reply handling, invoice intake, file organization, and territory routing; documented processes and trained two coworkers.</li>
+        </ul></div>
+      </article>
+      <article class="timeline-row">
+        <div class="timeline-meta"><span>May 2024 – Feb 2025</span><span>Remote</span></div>
+        <div class="timeline-main"><h3>Digital Marketer</h3><p class="company">Travel Hotline</p><ul>
+          <li>Produced approximately five short social videos per week, created social and email-newsletter assets, and researched market trends. Used Adobe Premiere Pro, Adobe Express, CapCut, and Canva.</li>
+          <li>Trained four teammates on content-production tools and quality standards.</li>
+        </ul></div>
+      </article>
+    </div>
+  </section>
+<section class="tools-section" aria-labelledby="tools-title">
+    <div class="plain-heading"><h2 id="tools-title">Tools &amp; platforms</h2></div>
+    <div class="tool-list">
+      <article><span>01</span><h3>Campaigns &amp; CRM</h3><p>Salesforce CRM · Account Engagement (Pardot) · Engagement Studio · ZoomInfo · 6sense</p></article>
+      <article><span>02</span><h3>Web &amp; analytics</h3><p>WordPress · Elementor · HTML · CSS · Google Search Console · Google Analytics 4</p></article>
+      <article><span>03</span><h3>Automation</h3><p>Zapier · Google Apps Script · Python · OpenAI API</p></article>
+      <article><span>04</span><h3>Coordination &amp; analysis</h3><p>Asana · Jira · Google Sheets · Microsoft Excel (pivot tables) · Microsoft PowerPoint</p></article>
+      <article><span>05</span><h3>Creative</h3><p>Adobe Premiere Pro · Adobe Express · CapCut · Canva · Adobe Photoshop · Adobe Illustrator</p></article>
+    </div>
+  </section>
+<section class="credentials-section" aria-labelledby="credentials-title">
+    <h2 class="sr-only" id="credentials-title">Education and certifications</h2>
+    <div class="education-card"><p class="eyebrow">Education</p><h3>Rowan University</h3><p>B.A. in Psychology | December 2024</p><p>3.96 GPA | Summa Cum Laude | President’s Scholars of Excellence</p></div>
+    <div class="certifications-card">
+      <p class="eyebrow">Certifications</p>
+      <div class="credential-list">
+        <article class="credential-item"><h3>HubSpot Email Marketing Certification</h3><p class="credential-meta">HubSpot Academy</p></article>
+        <article class="credential-item"><h3>Google Analytics Certification</h3><p class="credential-meta">Skillshop · Expires September 2, 2027</p><a class="credential-link" href="https://www.credential.net/fdd7fefc-9861-4fd1-ae11-877b0e5e66d2" target="_blank" rel="noopener noreferrer" aria-label="View verified Google Analytics Certification credential in a new tab">View credential <span aria-hidden="true">↗</span></a></article>
+        <article class="credential-item"><h3>Google Ads Search Certification</h3><p class="credential-meta">Skillshop · Expires May 22, 2027</p><a class="credential-link" href="https://skillshop.credential.net/fffa80c5-0bea-4d63-9f72-18ca5fabbcd1" target="_blank" rel="noopener noreferrer" aria-label="View verified Google Ads Search Certification credential in a new tab">View credential <span aria-hidden="true">↗</span></a></article>
+      </div>
+    </div>
+  </section>
+<section class="contact-section" id="contact" aria-labelledby="contact-title">
+    <p class="eyebrow">Contact</p>
+    <h2 id="contact-title">Have a role in mind?</h2>
+    <p class="contact-copy">Open to NYC hybrid and remote opportunities in marketing operations, digital marketing, and coordination.</p>
+    <div class="contact-actions"><a class="button contact-button" href="mailto:mickey.steurer@gmail.com">Email Michael <span aria-hidden="true">↗</span></a><a class="button contact-outline" href="../Michael_Steurer_Resume.pdf" download>Download resume <span aria-hidden="true">↓</span></a><a class="text-link light-link" href="https://www.linkedin.com/in/mickey-steurer" target="_blank" rel="noopener noreferrer" aria-label="Open Michael Steurer's LinkedIn profile in a new tab">LinkedIn <span aria-hidden="true">↗</span></a></div>
+  </section></main><footer><span>Michael Steurer · Career portfolio</span><a href="index.html">Compare prototypes</a></footer></body></html>
