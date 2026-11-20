@@ -1,80 +1,50 @@
-// Run after starting: python3 -m http.server 8765
-// Requires npm install --no-save playwright axe-core
-import { chromium } from 'playwright';
+import {chromium,firefox,webkit} from 'playwright';
 import assert from 'node:assert/strict';
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
+import {mkdirSync,writeFileSync} from 'node:fs';
+import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
-const axePath=require.resolve('axe-core');
-const base=process.env.PORTFOLIO_URL||'http://127.0.0.1:8765/';
-const widths=[320,390,768,1024,1440];
+const base='http://127.0.0.1:8765/';
 const shots='browser-shots';
 mkdirSync(shots,{recursive:true});
-const browser=await chromium.launch({headless:true});
-let failures=[],results=[],baselineResults=[],baselineWarnings=[];
-try {
-  for(const width of widths){
-    const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
-    try {
-      await page.goto(base,{waitUntil:'domcontentloaded'});
-      await page.waitForTimeout(350);
-      const checks=await page.evaluate(()=>{
-        const scrollWidth=document.documentElement.scrollWidth;
-        const viewport=window.innerWidth;
-        const sections=[...document.querySelectorAll('main section')].map(s=>s.id).filter(Boolean);
-        const headings=[...document.querySelectorAll('.portfolio-case h3')].map(el=>el.textContent.trim());
-        const download=document.querySelector('a[href="Michael_Steurer_Resume.pdf"]');
-        const focusables=[...document.querySelectorAll('.site-header nav a')];
-        return {
-          scrollWidth,viewport,overflow:Math.max(0,scrollWidth-viewport),
-          h1:document.querySelector('h1')?.innerText,
-          caseCount:document.querySelectorAll('.portfolio-case').length,
-          detailsCount:document.querySelectorAll('details.work-example').length,
-          sections,headings,download:!!download,
-          headerRight:Math.max(...focusables.map(el=>el.getBoundingClientRect().right),0)
-        };
-      });
-      assert(checks.overflow<=2,width+'px: horizontal overflow '+checks.overflow+'px');
-      assert(checks.headerRight<=width+2,width+'px: header nav overflows');
-      assert.equal(checks.caseCount,4);
-      assert(checks.download);
-      assert(checks.h1.includes('Michael Steurer'));
-      await page.screenshot({path:shots+'/portfolio-'+width+'.png',fullPage:true});
-      await page.addScriptTag({path:axePath});
-      const axe=await page.evaluate(async()=>await window.axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}}));
-      const serious=axe.violations.filter(v=>['critical','serious'].includes(v.impact));
-      if(serious.length)failures.push({width,type:'accessibility',violations:serious.map(v=>({id:v.id,impact:v.impact,description:v.description,nodes:v.nodes.length}))});
-      if(width===390){
-        const details=page.locator('#follow-up-example');
-        await details.locator('summary').click();
-        assert(await details.evaluate(x=>x.open),'Disclosure failed to open');
-        await page.screenshot({path:shots+'/portfolio-390-expanded.png',fullPage:true});
-      }
-      results.push({width,...checks,axeViolations:axe.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.length}))});
-    }catch(error){failures.push({width,type:'browser',error:String(error)});}
-    finally{await page.close();}
+const results=[],failures=[];
+for(const [name,engine] of [['chromium',chromium],['firefox',firefox],['webkit',webkit]]){
+ const browser=await engine.launch({headless:true});
+ try{
+  for(const width of (name==='chromium'?[320,390,768,1024,1440]:[390,1440])){
+   const page=await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
+   try{
+    await page.goto(base,{waitUntil:'domcontentloaded'});
+    const check=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,cases:document.querySelectorAll('.portfolio-case').length,workTop:Math.round(document.querySelector('#work').getBoundingClientRect().top),portrait:document.querySelector('.portrait img').naturalWidth>0}));
+    assert(check.overflow<=2,'overflow: '+check.overflow);assert.equal(check.cases,6);assert(check.portrait);
+    assert(await page.locator('a[href="Michael_Steurer_Resume.pdf"]').count()>=2);
+    await page.addScriptTag({path:require.resolve('axe-core')});
+    const scan=async()=>await page.evaluate(async()=> (await window.axe.run({runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}})).violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)})));
+    const collapsed=await scan();
+    if(name==='chromium'&&(width===390||width===1440)){
+      await page.screenshot({path:shots+'/clarity-'+width+'-full.png',fullPage:true});
+      await page.screenshot({path:shots+'/clarity-'+width+'-hero.png'});
+      await page.locator('#ai-reply-workflow').screenshot({path:shots+'/clarity-'+width+'-reply.png'});
+    }
+    for(const d of await page.locator('details.work-example').all()){await d.locator('summary').click();assert(await d.evaluate(x=>x.open),'disclosure failed');}
+    for(const [value,label] of [['interested','Positive interest'],['negative','Negative interest'],['optout','Do not contact'],['deferred','Deferred interest']]){
+      await page.locator('input[value="'+value+'"]').check();assert.equal(await page.locator('#demo-class').innerText(),label);
+    }
+    const expanded=await scan();
+    const expandedOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth);
+    assert(expandedOverflow<=2,'expanded overflow: '+expandedOverflow);
+    await page.goto(base+'#follow-up-example');assert(await page.locator('#follow-up-example').evaluate(x=>x.open),'direct-link disclosure failed');
+    if([...collapsed,...expanded].length)failures.push({name,width,type:'axe',collapsed,expanded});
+    results.push({name,width,...check,expandedOverflow,collapsed,expanded});
+   }catch(e){failures.push({name,width,error:String(e)});}finally{await page.close();}
   }
-  // Capture current published main as a visual comparison; failures here should not
-  // obscure whether the proposed branch itself passes checks.
-  for (const width of widths) {
-    const page = await browser.newPage({viewport:{width,height:900},reducedMotion:'reduce'});
-    try {
-      await page.goto('https://mickeysteurer.github.io/',{waitUntil:'domcontentloaded',timeout:18000});
-      await page.waitForTimeout(300);
-      await page.screenshot({path:shots+'/published-main-'+width+'.png',fullPage:true});
-      const baseline=await page.evaluate(()=>({
-        scrollWidth:document.documentElement.scrollWidth,
-        viewport:window.innerWidth,
-        pageHeight:document.documentElement.scrollHeight,
-        caseCount:document.querySelectorAll('.case-study').length,
-        detailsCount:document.querySelectorAll('details.work-example').length,
-        title:document.title
-      }));
-      baselineResults.push({width,...baseline});
-    }catch(error){baselineWarnings.push({width,error:String(error)});}
-    finally{await page.close();}
+  if(name==='chromium'){
+   const p=await browser.newPage({viewport:{width:390,height:844},javaScriptEnabled:false});
+   try{await p.goto(base);assert(await p.locator('h1').isVisible());assert(await p.locator('#salesforce-campaigns .case-copy').isVisible());await p.locator('#follow-up-example summary').click();assert(await p.locator('#follow-up-example').evaluate(e=>e.open));results.push({name,mode:'no-js',pass:true});}catch(e){failures.push({name,mode:'no-js',error:String(e)});}finally{await p.close();}
+   const k=await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'no-preference'});
+   try{await k.goto(base);await k.keyboard.press('Tab');assert.equal(await k.evaluate(()=>document.activeElement?.textContent.trim()),'Skip to main content');await k.keyboard.press('Enter');await k.locator('#follow-up-example summary').focus();await k.keyboard.press('Enter');assert(await k.locator('#follow-up-example').evaluate(e=>e.open));results.push({name,mode:'keyboard/ordinary-motion',pass:true});}catch(e){failures.push({name,mode:'keyboard',error:String(e)});}finally{await k.close();}
   }
-}finally{await browser.close();}
-writeFileSync(shots+'/qa-results.json',JSON.stringify({results,failures,baselineResults,baselineWarnings},null,2));
-console.log(JSON.stringify({results,failures},null,2));
+ }finally{await browser.close();}
+}
+writeFileSync(shots+'/qa-results.json',JSON.stringify({results,failures},null,2));
+console.log('CLARITY_QA '+JSON.stringify({results,failures}));
 if(failures.length)process.exitCode=1;

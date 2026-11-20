@@ -1,9 +1,11 @@
-name: Portfolio QA
+name: Contemporary Clarity QA
 on:
   pull_request:
     paths:
       - 'index.html'
       - 'styles.css'
+      - 'clarity.css'
+      - 'clarity.js'
       - 'script.js'
       - 'Michael_Steurer_Resume.pdf'
       - 'tests/**'
@@ -22,6 +24,7 @@ jobs:
       - name: Static content and JavaScript checks
         run: |
           node --check script.js
+          node --check clarity.js
           node --test tests/site.test.mjs
       - name: Verify published resume candidate
         run: |
@@ -40,12 +43,17 @@ jobs:
       - name: Install browser testing tools
         run: |
           npm install --no-save playwright@1.56.1 axe-core@4.10.3
-          npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium firefox webkit
       - name: Start local preview and run responsive/accessibility checks
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/portfolio-http.log 2>&1 &
           sleep 2
           node tests/browser-check.mjs
+      - name: Package working preview
+        if: always()
+        run: |
+          mkdir -p browser-shots
+          zip -q browser-shots/working-site.zip index.html clarity.css clarity.js script.js styles.css privacy.html favicon.svg michael-steurer-portrait.webp Michael_Steurer_Resume.pdf
       - name: Upload screenshots and results
         if: always()
         uses: actions/upload-artifact@v4

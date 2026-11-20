@@ -11,7 +11,7 @@ test('unique IDs and valid same-page anchors', () => {
 });
 test('disclosures balanced and critical sections preserved', () => {
   assert.equal((html.match(/<details\b/g)||[]).length,(html.match(/<\/details>/g)||[]).length);
-  for (const target of ['id="work"','id="experience"','id="contact"','id="salesforce-campaigns"','id="ai-reply-workflow"','id="web-publishing"','id="operations-training"']) assert(html.includes(target), 'Missing ' + target);
+  for (const target of ['id="work"','id="experience"','id="contact"','id="salesforce-campaigns"','id="ai-reply-workflow"','id="web-publishing"','id="operations-training"','id="events-training"','id="content-production"','id="reply-demo"']) assert(html.includes(target), 'Missing ' + target);
 });
 test('confirmed claim guards', () => {
   assert.match(html,/50\+ Engagement Studio workflows/);
@@ -20,7 +20,11 @@ test('confirmed claim guards', () => {
   assert(th,'Travel Hotline section missing');
   assert(!/blog|wordpress|elementor|website/i.test(th),'Travel Hotline misattribution');
   assert(!html.includes('project-preview'), 'Duplicate preview navigation');
+  assert(html.includes('Illustrative simulation'));
+  assert(html.includes('500+ in-person leads'));
+  assert(html.includes('trained four teammates'));
+  assert(html.includes('trained two GRM coworkers'));
 });
 test('local assets exist', () => {
-  for(const file of ['styles.css','script.js','privacy.html','Michael_Steurer_Resume.pdf','michael-steurer-portrait.webp']) assert(existsSync(new URL('../'+file,import.meta.url)), 'Missing asset ' + file);
+  for(const file of ['styles.css','clarity.css','script.js','clarity.js','privacy.html','Michael_Steurer_Resume.pdf','michael-steurer-portrait.webp']) assert(existsSync(new URL('../'+file,import.meta.url)), 'Missing asset ' + file);
 });
