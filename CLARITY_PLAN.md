@@ -25,5 +25,5 @@ Source baseline: PR #8 commit, not production. Keep previous PRs unchanged. Do n
 - Compact hero and direct work navigation; keep actual open row design and original portrait.
 - Fold Python prospect research into campaign execution, foreground TCV reporting without claiming revenue/transaction value or acquisition outcomes. Preserve legacy fragment.
 - Interactive reply retains four confirmed intent categories, adds selected-path steps and an ambiguity/review scenario. No external requests or tracking choices.
-- Shorten role summaries while preserving documented scope; declined to publish SEO growth without date/attribution context. Restyle privacy page, update favicon and sitemap. Social preview raster still needs replacement.
+- Shorten role summaries while preserving documented scope; declined to publish SEO growth without date/attribution context. Restyle privacy page, update favicon and sitemap. New 1200×630 social preview PNG uses the same palette and typographic hierarchy.
 - Correct the no-JS check to assert actual radio disabled states and fieldset property; add jump link, keyboard focus and narrow/privacy checks.

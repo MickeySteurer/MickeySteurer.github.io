@@ -9,6 +9,7 @@ on:
       - 'privacy.html'
       - 'favicon.svg'
       - 'sitemap.xml'
+      - 'clarity-social.png'
       - 'script.js'
       - 'Michael_Steurer_Resume.pdf'
       - 'tests/**'
@@ -61,7 +62,7 @@ jobs:
         if: always()
         run: |
           mkdir -p browser-shots
-          zip -q browser-shots/working-site.zip index.html clarity.css clarity.js script.js styles.css privacy.html favicon.svg michael-steurer-portrait.webp Michael_Steurer_Resume.pdf
+          zip -q browser-shots/working-site.zip index.html clarity.css clarity.js script.js styles.css privacy.html favicon.svg clarity-social.png michael-steurer-portrait.webp Michael_Steurer_Resume.pdf
       - name: Upload screenshots and results
         if: always()
         uses: actions/upload-artifact@v4
