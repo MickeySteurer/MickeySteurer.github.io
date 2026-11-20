@@ -15,3 +15,8 @@ Source baseline: PR #8 commit, not production. Keep previous PRs unchanged. Do n
 - Node structure/claim guards; one-page PDF content check; Chromium at 320/390/768/1024/1440 and Firefox/WebKit at 390/1440; automated scans in open/closed states; all nine disclosures and four reply choices; direct link, no-JS and keyboard checks.
 - Verify screenshots and address real defects. Automated scans do not establish comprehensive WCAG conformance. Manual zoom, touch, real reader feedback, live analytics and field Core Web Vitals remain separate release checks.
 - No actual external sample asset supplied for this design; don't create fake workplace visuals. Social preview and sitemap update before approved deployment.
+
+## Additional implementation refinements
+- Wrap each project's body in one grid column so desktop rows do not reserve empty grid tracks.
+- Disable interactive reply options when JavaScript is unavailable; all underlying paths remain readable in native disclosures.
+- Capture current main and PR #8 at the same widths with local checkouts and without analytics.

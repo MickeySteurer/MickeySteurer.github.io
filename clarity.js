@@ -1,6 +1,7 @@
 (() => {
   const demo = document.getElementById('reply-demo');
   if (!demo) return;
+  demo.querySelector('fieldset').disabled = false;
   const choices = {
     deferred: ['Deferred interest','Record the requested timing and context, then enroll the eligible contact in the appropriate follow-up workflow.'],
     interested: ['Positive interest','Notify Sales so a salesperson can respond.'],

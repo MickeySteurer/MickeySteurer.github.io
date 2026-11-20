@@ -97,3 +97,11 @@ html{scroll-padding-top:16px}.hero{grid-template-columns:minmax(0,1fr) 76px;gap:
 .analytics-choice:focus-visible,.analytics-close:focus-visible,.analytics-settings:focus-visible{outline:3px solid #3f5fe8;outline-offset:3px}
 .privacy-links{display:flex;gap:18px;flex-wrap:wrap}
 .privacy-links a{color:inherit;font:inherit;font-size:11px;text-decoration:underline;display:inline-flex;align-items:center;min-height:24px}
+
+/* Keep case heading and content in a single intentional row; prevent empty implicit grid tracks. */
+.case-heading{grid-row:auto}
+.case-study>.case-body{display:grid;gap:14px;min-width:0;align-content:start}
+.case-study>.case-body>*{min-width:0}
+.hero h1{max-width:none}
+.reply-options:disabled label{cursor:default}
+@media(max-width:620px){.case-study>.case-body{gap:12px}}

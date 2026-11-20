@@ -46,6 +46,11 @@ jobs:
           npx playwright install --with-deps chromium firefox webkit
       - name: Start local preview and run responsive/accessibility checks
         run: |
+          git fetch --depth=1 origin main:refs/remotes/origin/main portfolio-evidence-layout-2026-11:refs/remotes/origin/portfolio-evidence-layout-2026-11
+          git worktree add --detach /tmp/portfolio-main refs/remotes/origin/main
+          git worktree add --detach /tmp/portfolio-draft8 refs/remotes/origin/portfolio-evidence-layout-2026-11
+          python3 -m http.server 8766 --bind 127.0.0.1 --directory /tmp/portfolio-main >/tmp/portfolio-main-http.log 2>&1 &
+          python3 -m http.server 8767 --bind 127.0.0.1 --directory /tmp/portfolio-draft8 >/tmp/portfolio-draft8-http.log 2>&1 &
           python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/portfolio-http.log 2>&1 &
           sleep 2
           node tests/browser-check.mjs
