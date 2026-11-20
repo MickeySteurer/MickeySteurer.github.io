@@ -1,0 +1,72 @@
+name: Contemporary Clarity QA
+on:
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'clarity.css'
+      - 'clarity.js'
+      - 'privacy.html'
+      - 'favicon.svg'
+      - 'sitemap.xml'
+      - 'clarity-social.png'
+      - 'script.js'
+      - 'Michael_Steurer_Resume.pdf'
+      - 'tests/**'
+      - '.github/workflows/portfolio-qa.yml'
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Static content and JavaScript checks
+        run: |
+          node --check script.js
+          node --check clarity.js
+          node --test tests/site.test.mjs
+      - name: Verify published resume candidate
+        run: |
+          sudo apt-get update -qq >/dev/null
+          sudo apt-get install -y poppler-utils >/dev/null
+          mkdir -p browser-shots
+          test "$(pdfinfo Michael_Steurer_Resume.pdf | awk '/Pages:/ {print $2}')" = "1"
+          pdftotext -layout Michael_Steurer_Resume.pdf /tmp/resume.txt
+          awk '/Travel Hotline/ {capture=1;next} /SKILLS/ {capture=0} capture' /tmp/resume.txt > /tmp/travel_hotline.txt
+          if grep -Eiq 'blog|WordPress|Elementor|website' /tmp/travel_hotline.txt; then
+            echo 'Incorrect Travel Hotline attribution found in public resume'
+            exit 1
+          fi
+          pdftoppm -f 1 -l 1 -scale-to 1050 -jpeg -jpegopt quality=65 Michael_Steurer_Resume.pdf browser-shots/resume-current >/dev/null 2>&1
+          echo 'Resume verified: one page and no prohibited Travel Hotline attribution.'
+      - name: Install browser testing tools
+        run: |
+          npm install --no-save playwright@1.56.1 axe-core@4.10.3
+          npx playwright install --with-deps chromium firefox webkit
+      - name: Start local preview and run responsive/accessibility checks
+        run: |
+          git fetch --depth=1 origin main:refs/remotes/origin/main portfolio-evidence-layout-2026-11:refs/remotes/origin/portfolio-evidence-layout-2026-11
+          git worktree add --detach /tmp/portfolio-main refs/remotes/origin/main
+          git worktree add --detach /tmp/portfolio-draft8 refs/remotes/origin/portfolio-evidence-layout-2026-11
+          python3 -m http.server 8766 --bind 127.0.0.1 --directory /tmp/portfolio-main >/tmp/portfolio-main-http.log 2>&1 &
+          python3 -m http.server 8767 --bind 127.0.0.1 --directory /tmp/portfolio-draft8 >/tmp/portfolio-draft8-http.log 2>&1 &
+          python3 -m http.server 8765 --bind 127.0.0.1 > /tmp/portfolio-http.log 2>&1 &
+          sleep 2
+          node tests/browser-check.mjs
+      - name: Package working preview
+        if: always()
+        run: |
+          mkdir -p browser-shots
+          zip -q browser-shots/working-site.zip index.html clarity.css clarity.js script.js styles.css privacy.html favicon.svg clarity-social.png michael-steurer-portrait.webp Michael_Steurer_Resume.pdf
+      - name: Upload screenshots and results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-browser-qa
+          path: browser-shots/
+          if-no-files-found: ignore
