@@ -23,6 +23,10 @@ test('confirmed claim guards', () => {
   assert(html.includes('Illustrative simulation'));
   assert(html.includes('500+ in-person leads'));
   assert(html.includes('trained four teammates'));
+  assert(!html.includes('One CEO responded'));
+  assert(html.includes('total contract value (TCV)'));
+  assert(html.includes('id="acquisition-example"'));
+  assert(html.includes('value="unclear"'));
   assert(html.includes('trained two GRM coworkers'));
 });
 test('local assets exist', () => {

@@ -20,3 +20,10 @@ Source baseline: PR #8 commit, not production. Keep previous PRs unchanged. Do n
 - Wrap each project's body in one grid column so desktop rows do not reserve empty grid tracks.
 - Disable interactive reply options when JavaScript is unavailable; all underlying paths remain readable in native disclosures.
 - Capture current main and PR #8 at the same widths with local checkouts and without analytics.
+
+## Approved refinement pass
+- Compact hero and direct work navigation; keep actual open row design and original portrait.
+- Fold Python prospect research into campaign execution, foreground TCV reporting without claiming revenue/transaction value or acquisition outcomes. Preserve legacy fragment.
+- Interactive reply retains four confirmed intent categories, adds selected-path steps and an ambiguity/review scenario. No external requests or tracking choices.
+- Shorten role summaries while preserving documented scope; declined to publish SEO growth without date/attribution context. Restyle privacy page, update favicon and sitemap. Social preview raster still needs replacement.
+- Correct the no-JS check to assert actual radio disabled states and fieldset property; add jump link, keyboard focus and narrow/privacy checks.
